@@ -14,3 +14,11 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
     mix.sass('app.scss');
 });
+
+elixir(function(mix) {
+    mix.copy('vendor/twbs', 'public/bootstrap');
+});
+
+elixir(function(mix) {
+    mix.copy('vendor/tinymce', 'public/tinymce');
+});

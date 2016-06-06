@@ -11,10 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/administrator', 'PagesController@administrator_index');
+
+Route::get('/administrator/blog/create', 'BlogController@create');
