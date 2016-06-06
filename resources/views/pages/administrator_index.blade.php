@@ -14,7 +14,7 @@
                 <a href="/administrator/blog/create" >Создать статью</a>
             </div>
             <div class="col-lg-6">
-                <a href="#" >Все статьи</a>
+                <a href="/administrator/blog" >Все статьи</a>
             </div>
             <div class="col-lg-6">
                 <a href="#" >Мои статьи</a>

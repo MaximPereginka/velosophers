@@ -7,8 +7,13 @@
     </div>
     <form action="" method="post">
         <div class="form-group">
-            <label class="control-label" for="caption">Название</label>
-            <input type="text" id="caption" name="caption" class="form-control" placeholder="Введите название статьи" />
+            <label class="control-label" for="title">Название</label>
+            <input type="text" id="title" name="title" class="form-control" placeholder="Введите название статьи" />
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="content">Текст статьи</label>
+            <textarea id="content" name="content" class="form-control"></textarea>
         </div>
     </form>
 
