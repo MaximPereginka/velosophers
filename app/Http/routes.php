@@ -22,6 +22,6 @@ Route::get('/administrator/blog', 'BlogController@index');
 Route::get('/administrator/blog/own', 'BlogController@own');
 Route::get('/administrator/blog/create', 'BlogController@create');
 Route::post('/administrator/blog', 'BlogController@store');
-Route::get('/administrator/blog/edit/{id}', 'BlogController@edit');
+Route::get('/administrator/blog/edit/{article}', 'BlogController@edit');
 Route::post('/administrator/blog/edit', 'BlogController@update');
 Route::post('/administrator/blog/destroy', 'BlogController@destroy');

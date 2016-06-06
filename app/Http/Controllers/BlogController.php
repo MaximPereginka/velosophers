@@ -4,16 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use App\Models\Articles;
 use DB;
-use App\Models\Article;
 
 class BlogController extends Controller
 {
     /*
      * All articles list page
      */
-    public function index(){
-        $articles = Article::all();
+    public function index(Request $request)
+    {
+        $articles = Articles::all();
 
         return view('blog.administrator_index', compact('articles'));
     }
@@ -21,16 +22,32 @@ class BlogController extends Controller
     /*
      * Creating article page
      */
-    public function create(){
+    public function create()
+    {
         return view('blog.create');
     }
 
     /*
      * Editing existing article page
      */
-    public function edit($id){
-        $article = Article::find($id);
-
+    public function edit(Articles $article)
+    {
         return view('blog.edit', compact('article'));
+    }
+
+    /*
+     * Saving new article
+     */
+    public function store(Request $request)
+    {
+        $article = new Articles([
+            'user_id' => $request->user()->id,
+            'title' => $request->title,
+            'content' => $request->articleContent,
+        ]);
+
+        $article->save();
+
+        return back();
     }
 }
