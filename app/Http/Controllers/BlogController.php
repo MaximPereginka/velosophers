@@ -2,19 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categories;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Models\Articles;
-use DB;
+use App\User;
 
 class BlogController extends Controller
 {
     /*
      * All articles list page
      */
-    public function index(Request $request)
+    public function index()
     {
         $articles = Articles::all();
+        return view('blog.administrator_index', compact('articles'));
+    }
+    
+    /*
+     * List of current user articles page
+     */
+    public function own(){
+        $user = new User;
+        $articles = $user->find(\Auth::user()->id)->articles;
 
         return view('blog.administrator_index', compact('articles'));
     }
@@ -24,15 +34,12 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('blog.create');
-    }
+        $categories = new Categories();
+        $data = [
+            'categories' => $categories->all(),
+        ];
 
-    /*
-     * Editing existing article page
-     */
-    public function edit(Articles $article)
-    {
-        return view('blog.edit', compact('article'));
+        return view('blog.create', compact('data'));
     }
 
     /*
@@ -40,13 +47,41 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        $article = new Articles([
+        Articles::create([
             'user_id' => $request->user()->id,
             'title' => $request->title,
             'content' => $request->articleContent,
+            'category_id' => '1',
         ]);
 
-        $article->save();
+        return back();
+    }
+
+    /*
+     * Editing existing article page
+     */
+
+    public function edit(Articles $article)
+    {
+        $categories = new Categories();
+        $data = [
+            'categories' => $categories->all(),
+        ];
+
+        return view('blog.edit', compact('article', 'data'));
+    }
+
+    /*
+     * Updating existing article
+     */
+    public function update(Request $request, Articles $article)
+    {
+        $article->update([
+            'user_id' => $request->user()->id,
+            'title' => $request->title,
+            'content' => $request->articleContent,
+            'category_id' => $request->category_id,
+        ]);
 
         return back();
     }

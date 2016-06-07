@@ -6,6 +6,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+    /*
+     * Relation with articles
+     */
+    public function articles()
+    {
+        return $this->hasMany('App\Models\Articles');
+    }
+    
     /**
      * The attributes that are mass assignable.
      *

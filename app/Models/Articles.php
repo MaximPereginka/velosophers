@@ -9,12 +9,18 @@ class Articles extends Model
     /*
      * List of mass-assignable fields
      */
-    protected $fillable = ['title', 'content', 'user_id'];
+    protected $fillable = ['title', 'content', 'user_id', 'category_id'];
 
     /*
      * Relation with user
      */
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo('App\User');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo('App\Models\Categories');
     }
 }

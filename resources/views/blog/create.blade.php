@@ -12,6 +12,15 @@
         </div>
 
         <div class="form-group">
+            <label class="control-label" for="category_id">Категория</label>
+            <select id="category_id" name="category_id" class="form-control" required>
+                @foreach($data['categories'] as $category)
+                    <option value="{{ $category->id }}" @if($category->id == 1) {{ "selected" }}@endif>{{ $category->name }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="form-group">
             <label class="control-label" for="articleContent">Текст статьи</label>
             <textarea id="articleContent" name="articleContent" class="form-control"></textarea>
         </div>
@@ -24,4 +33,5 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
     </form>
 
+    @include('helpers.tinymce')
 @stop

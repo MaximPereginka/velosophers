@@ -1,0 +1,12 @@
+body {
+    font-family: 'Lato';
+}
+
+.fa-btn {
+    margin-right: 6px;
+}
+
+.content > p > img{
+    max-width: calc(100% - 20px) !important ;
+    height: auto !important;
+}

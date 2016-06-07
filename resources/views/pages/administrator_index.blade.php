@@ -17,7 +17,10 @@
                 <a href="/administrator/blog" >Все статьи</a>
             </div>
             <div class="col-lg-6">
-                <a href="#" >Мои статьи</a>
+                <a href="/administrator/blog/own" >Мои статьи</a>
+            </div>
+            <div class="col-lg-6">
+                <a href="/administrator/blog/categories">Категории</a>
             </div>
         </div>
     </div>
