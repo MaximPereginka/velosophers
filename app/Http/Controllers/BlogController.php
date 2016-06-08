@@ -137,7 +137,7 @@ class BlogController extends Controller
      */
     public function delete(Articles $article)
     {
-        if($article->delete() and $article->categories->delete()){
+        if($article->delete()){
             Session::flash('flash_message', 'Статья успешно удалена');
         }
         else {
