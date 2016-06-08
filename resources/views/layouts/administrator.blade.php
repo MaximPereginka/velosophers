@@ -38,6 +38,19 @@
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
 
+            <!-- Main menu -->
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Блог<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/administrator/blog/create">Создать статью</a></li>
+                        <li><a href="/administrator/blog/own">Мои статьи</a></li>
+                        <li><a href="/administrator/blog">Все статьи</a></li>
+                        <li><a href="/administrator/blog/categories">Категории</a></li>
+                    </ul>
+                </li>
+            </ul>
+
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
@@ -51,7 +64,16 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                            <li>
+                                <a href="/administrator/blog/own" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    <i class="fa fa-btn fa-file-text-o"></i>Мои публикации
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url('/logout') }}">
+                                    <i class="fa fa-btn fa-sign-out"></i>Logout
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 @endif
