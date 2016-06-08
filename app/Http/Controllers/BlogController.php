@@ -83,10 +83,10 @@ class BlogController extends Controller
                 $article->categories()->sync($request->category);
             }
             Session::flash('flash_message', 'Статья успешно создана');
-            return back();
+            return \Redirect::to("/administrator/blog/edit/".$article->id);
         }
         else{
-            return Redirect::back()->withErrors($article->errors());
+            return \Redirect::back()->withErrors($article->errors());
         }
     }
 
