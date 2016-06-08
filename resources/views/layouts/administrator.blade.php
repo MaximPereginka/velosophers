@@ -65,7 +65,7 @@
 
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="/administrator/blog/own" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <a href="/administrator/blog/own">
                                     <i class="fa fa-btn fa-file-text-o"></i>Мои публикации
                                 </a>
                             </li>
