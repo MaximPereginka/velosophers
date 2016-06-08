@@ -32,6 +32,6 @@ class Articles extends Model
      */
     public function status()
     {
-        return $this->belongsTo('App\Models\Article_status');
+        return $this->belongsTo('App\Models\Article_Status');
     }
 }

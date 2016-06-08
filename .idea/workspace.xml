@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e267fa59-6a0a-4d77-9def-d5c1ddf921f0" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_06_08_150238_create_article_status_table.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Categories.php" afterPath="$PROJECT_DIR$/app/Models/Categories.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/admin_style.css" afterPath="$PROJECT_DIR$/public/admin_style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/blog/administrator_index.blade.php" afterPath="$PROJECT_DIR$/resources/views/blog/administrator_index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/blog/categories.blade.php" afterPath="$PROJECT_DIR$/resources/views/blog/categories.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/blog/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/blog/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/blog/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/blog/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/blog/own.blade.php" afterPath="$PROJECT_DIR$/resources/views/blog/own.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/helpers/administrator/article_categories.blade.php" afterPath="$PROJECT_DIR$/resources/views/helpers/administrator/article_categories.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/helpers/administrator/article_list.blade.php" afterPath="$PROJECT_DIR$/resources/views/helpers/administrator/article_list.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Articles.php" afterPath="$PROJECT_DIR$/app/Models/Articles.php" />
     </list>
     <ignored path="velosophers.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,7 +47,7 @@
       <file leaf-file-name="BlogController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BlogController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
+            <state relative-caret-position="-8">
               <caret line="143" column="45" selection-start-line="143" selection-start-column="45" selection-end-line="143" selection-end-column="45" />
               <folding>
                 <element signature="e#40#88#0#PHP" expanded="true" />
@@ -77,23 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2016_06_08_192632_create_article_status_table.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_08_192632_create_article_status_table.php">
+      <file leaf-file-name="Articles.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Models/Articles.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
-              <folding>
-                <marker date="1465403260989" expanded="true" signature="522:681" ph="INSERT INTO `article_status`... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".env" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.env">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+            <state relative-caret-position="323">
+              <caret line="34" column="53" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -120,7 +96,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdministratorController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PagesController.php" />
         <option value="$PROJECT_DIR$/config/database.php" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/resources/views/blog/admistrator_index.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/Blog.php" />
         <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
@@ -136,7 +111,6 @@
         <option value="$PROJECT_DIR$/database/migrations/2016_06_07_013756_create_categories_table.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/administrator.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/Article_Status.php" />
-        <option value="$PROJECT_DIR$/app/Models/Articles.php" />
         <option value="$PROJECT_DIR$/resources/views/helpers/administrator_article_list.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_06_06_172618_create_articles_table.php" />
         <option value="$PROJECT_DIR$/resources/views/helpers/administrator/administrator_article_list.blade.php" />
@@ -158,6 +132,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_06_08_150238_create_article_status_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_06_08_192632_create_article_status_table.php" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/app/Models/Articles.php" />
       </list>
     </option>
   </component>
@@ -361,12 +337,12 @@
       <workItem from="1465211005517" duration="5403000" />
       <workItem from="1465217681790" duration="4068000" />
       <workItem from="1465222196907" duration="27347000" />
-      <workItem from="1465302249212" duration="48058000" />
+      <workItem from="1465302249212" duration="51519000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84876000" />
+    <option name="totallyTimeSpent" value="88337000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -695,14 +671,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Articles.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="110" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Categories.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
@@ -770,9 +738,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_08_150238_create_article_status_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_08_192632_create_article_status_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
+          <folding>
+            <marker date="1465403260989" expanded="true" signature="522:681" ph="INSERT INTO `article_status`... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BlogController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
+        <state relative-caret-position="-8">
           <caret line="143" column="45" selection-start-line="143" selection-start-column="45" selection-end-line="143" selection-end-column="45" />
           <folding>
             <element signature="e#40#88#0#PHP" expanded="true" />
@@ -789,28 +783,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_08_150238_create_article_status_table.php">
+    <entry file="file://$PROJECT_DIR$/app/Models/Articles.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_08_192632_create_article_status_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
-          <folding>
-            <marker date="1465403260989" expanded="true" signature="522:681" ph="INSERT INTO `article_status`... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+        <state relative-caret-position="323">
+          <caret line="34" column="53" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
           <folding />
         </state>
       </provider>
