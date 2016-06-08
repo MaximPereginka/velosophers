@@ -1,7 +1,7 @@
 <!-- TinyMCE scripts -->
 <script src="/tinymce/tinymce.min.js"></script>
 <script>tinymce.init({
-        selector: 'textarea',
+        selector: 'textarea#articleContent',
         height: 400,
         theme: 'modern',
         plugins: [

@@ -16,7 +16,7 @@
 
         @foreach($articles as $article)
 
-            @include('helpers.administrator_article_list')
+            @include('helpers.administrator.article_list')
 
         @endforeach
 

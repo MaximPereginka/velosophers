@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article_Status;
 use App\Models\Categories;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -39,9 +40,11 @@ class BlogController extends Controller
     public function create()
     {
         $categories = new Categories();
+        $statuses = new Article_Status();
 
         $data = [
             'categories' => $categories->all(),
+            'statuses' => $statuses->all()
         ];
 
         return view('blog.create', compact('data'));
@@ -57,6 +60,7 @@ class BlogController extends Controller
         $article->user_id = $request->user()->id;
         $article->title = $request->title;
         $article->content = $request->articleContent;
+        $article->status_id = $request->status_id;
 
         if($article->save()){
             if($request->category) {
@@ -77,8 +81,10 @@ class BlogController extends Controller
     public function edit(Articles $article)
     {
         $categories = new Categories();
+        $statuses = new Article_Status();
         $data = [
             'categories' => $categories->all(),
+            'statuses' => $statuses->all()
         ];
 
         return view('blog.edit', compact('article', 'data'));
@@ -92,6 +98,7 @@ class BlogController extends Controller
         $article->user_id = $request->user()->id;
         $article->title = $request->title;
         $article->content = $request->articleContent;
+        $article->status_id = $request->status_id;
 
         if($article->update()){
             if($request->category) {
@@ -128,11 +135,11 @@ class BlogController extends Controller
     {
         $has_parent = false;
         if(!$request->parent_id == 0) $has_parent = true;
-        Categories::create([
+        if(Categories::create([
             'name' => $request->title,
             'parent_id' => $request->parent_id,
             'has_parent' => $has_parent,
-        ]);
+        ])) Session::flash('flash_message', 'Категория успешно создана');
 
         return back();
     }

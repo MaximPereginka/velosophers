@@ -26,4 +26,12 @@ class Articles extends Model
     {
         return $this->belongsToMany('App\Models\Categories', 'category_article', 'article_id', 'category_id');
     }
+
+    /*
+     * Relation with article_status
+     */
+    public function status()
+    {
+        return $this->belongsTo('App\Models\Article_status');
+    }
 }
