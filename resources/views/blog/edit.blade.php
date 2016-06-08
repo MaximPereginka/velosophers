@@ -16,6 +16,12 @@
         </div>
         <div class="col-md-4">
             <label>&nbsp;</label>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Сохранить</button>
+                <a class="btn btn-danger" href="/administrator/blog/article/{{ $article->id }}/delete">Удалить</a>
+            </div>
+
             <div class="panel panel-default">
                 <div class="panel-heading">Детали</div>
                 <div class="panel-body">
@@ -31,9 +37,9 @@
             <!-- Article categories -->
             @include('helpers.administrator.article_categories')
 
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Сохранить</button>
-            </div>
+
+            <!-- Article image -->
+            @include('helpers.administrator.article_image')
         </div>
 
         <input type="hidden" name="_token" value="{{ csrf_token() }}">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Models\Article_Status;
 use App\Models\Categories;
 use Illuminate\Http\Request;
@@ -35,6 +36,19 @@ class BlogController extends Controller
     }
     
     /*
+     * List of articles of specific category
+     */
+    public function category(Categories $category)
+    {
+        $data = [
+            'category' => $category,
+            'articles' => $category->articles->all(),
+        ];
+        
+        return view('blog.category_articles', $data);
+    }
+    
+    /*
      * Creating article page
      */
     public function create()
@@ -59,6 +73,8 @@ class BlogController extends Controller
 
         $article->user_id = $request->user()->id;
         $article->title = $request->title;
+        $article->preview = $request->preview;
+        $article->img = $request->img_url;
         $article->content = $request->articleContent;
         $article->status_id = $request->status_id;
 
@@ -97,6 +113,8 @@ class BlogController extends Controller
     {
         $article->user_id = $request->user()->id;
         $article->title = $request->title;
+        $article->preview = $request->preview;
+        $article->img = $request->img_url;
         $article->content = $request->articleContent;
         $article->status_id = $request->status_id;
 
@@ -112,6 +130,21 @@ class BlogController extends Controller
         }
 
         return back();
+    }
+
+    /*
+     * Deleting existing article
+     */
+    public function delete(Articles $article)
+    {
+        if($article->delete() and $article->categories->delete()){
+            Session::flash('flash_message', 'Статья успешно удалена');
+        }
+        else {
+            Session::flash('flash_message', 'Ошибка удаления статьи');
+        }
+
+        return \Redirect::to('/administrator/blog/own');
     }
 
     /*
@@ -142,5 +175,20 @@ class BlogController extends Controller
         ])) Session::flash('flash_message', 'Категория успешно создана');
 
         return back();
+    }
+
+    /*
+     * Deleting existing category
+     */
+    public function delete_category(Categories $category)
+    {
+        if($category->delete()){
+            Session::flash('flash_message', 'Категория успешно удалена');
+        }
+        else {
+            Session::flash('flash_message', 'Ошибка удаления категории');
+        }
+
+        return \Redirect::to('/administrator/blog/categories');
     }
 }

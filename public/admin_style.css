@@ -10,3 +10,7 @@ body {
     max-width: calc(100% - 20px) !important ;
     height: auto !important;
 }
+
+.margin-top {
+    margin-top: 20px
+}

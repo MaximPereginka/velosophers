@@ -20,4 +20,12 @@ class Categories extends Model
             LEFT JOIN `categories` as `c2` ON `c1`.`parent_id` = `c2`.`id`
         ');
     }
+
+    /*
+     * Relation with Article_status table
+     */
+    public function articles()
+    {
+        return $this->belongsToMany('App\Models\Articles', 'category_article', 'category_id', 'article_id');
+    }
 }

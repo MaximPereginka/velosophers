@@ -14,11 +14,8 @@
 
     @else
 
-        @foreach($articles as $article)
-
-            @include('helpers.administrator.article_list')
-
-        @endforeach
+        <!-- Article list -->
+        @include('helpers.administrator.article_list')
 
     @endif
 

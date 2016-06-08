@@ -17,9 +17,11 @@
             <!-- Article categories -->
             @include('helpers.administrator.article_categories')
 
+            <!-- Article image -->
+            @include('helpers.administrator.article_image')
+
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Создать</button>
-                <button type="reset" class="btn btn-default">Очистить</button>
             </div>
         </div>
 

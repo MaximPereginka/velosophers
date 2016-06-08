@@ -16,15 +16,17 @@ Route::auth();
 Route::get('/administrator', 'PagesController@administrator_index');
 
 /*
- * Blog routes
+ * Administrator blog routes
  */
+Route::get('/', 'PagesController@administrator_index');
 Route::get('/administrator/blog', 'BlogController@index');
 Route::get('/administrator/blog/own', 'BlogController@own');
 Route::get('/administrator/blog/create', 'BlogController@create');
 Route::post('/administrator/blog', 'BlogController@store');
 Route::get('/administrator/blog/edit/{article}', 'BlogController@edit');
 Route::patch('/administrator/blog/edit/{article}/update', 'BlogController@update');
-Route::post('/administrator/blog/destroy', 'BlogController@destroy');
+Route::get('/administrator/blog/article/{article}/delete', 'BlogController@delete');
+Route::get('/administrator/blog/category/{category}', 'BlogController@category');
 Route::get('/administrator/blog/categories', 'BlogController@categories');
 Route::post('/administrator/blog/categories/create', 'BlogController@create_category');
-Route::get('/administrator/blog/categories/{id}/delete');
+Route::get('/administrator/blog/categories/{category}/delete', 'BlogController@delete_category');

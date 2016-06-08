@@ -26,31 +26,35 @@
 
     <hr/>
 
-    <table class="table table-striped table-hover">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>Название категории</th>
-            <th>Родитель</th>
-            <th>&nbsp;</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($data['categories'] as $category)
-        <tr>
-            <td>{{ $category->id }}</td>
-            <td>{{ $category->name }}</td>
-            <td>
-                @if(!$category->has_parent)
-                    {{ "Нет родителя" }}
-                @else
-                    {{ $category->parent }}
-                @endif
-            </td>
-            <td class="pull-right"><a class="btn btn-danger" href="/administrator/blog/categories/{{ $category->id }}/delete">Удалить</a></td>
-        </tr>
-        @endforeach
-        </tbody>
-    </table>
+    @if(!empty($data['categories']))
+        <table class="table table-striped table-hover">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Название категории</th>
+                <th>Родитель</th>
+                <th>&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($data['categories'] as $category)
+            <tr>
+                <td>{{ $category->id }}</td>
+                <td><a href="/administrator/blog/category/{{ $category->id }}">{{ $category->name }}</a></td>
+                <td>
+                    @if(!$category->has_parent)
+                        {{ "Нет родителя" }}
+                    @else
+                        {{ $category->parent }}
+                    @endif
+                </td>
+                <td class="pull-right"><a class="btn btn-danger" href="/administrator/blog/categories/{{ $category->id }}/delete">Удалить</a></td>
+            </tr>
+            @endforeach
+            </tbody>
+        </table>
+    @else
+        <p>Не создано ни одной категории</p>
+    @endif
 
 @stop
