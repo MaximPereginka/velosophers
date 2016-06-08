@@ -19,8 +19,11 @@ class Articles extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function category()
+    /*
+     * Relation with categories
+     */
+    public function categories()
     {
-        return $this->belongsTo('App\Models\Categories');
+        return $this->belongsToMany('App\Models\Categories', 'category_article', 'article_id', 'category_id');
     }
 }

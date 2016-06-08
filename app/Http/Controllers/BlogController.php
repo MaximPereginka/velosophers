@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Models\Articles;
 use App\User;
+use Illuminate\Support\Facades\Session;
 
 class BlogController extends Controller
 {
@@ -15,18 +16,21 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $articles = Articles::all();
+        $articles = new Articles;
+        $articles = $articles->all();
+
         return view('blog.administrator_index', compact('articles'));
     }
     
     /*
      * List of current user articles page
      */
-    public function own(){
+    public function own()
+    {
         $user = new User;
         $articles = $user->find(\Auth::user()->id)->articles;
 
-        return view('blog.administrator_index', compact('articles'));
+        return view('blog.own', compact('articles'));
     }
     
     /*
@@ -35,6 +39,7 @@ class BlogController extends Controller
     public function create()
     {
         $categories = new Categories();
+
         $data = [
             'categories' => $categories->all(),
         ];
@@ -47,14 +52,22 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        Articles::create([
-            'user_id' => $request->user()->id,
-            'title' => $request->title,
-            'content' => $request->articleContent,
-            'category_id' => '1',
-        ]);
+        $article = new Articles;
 
-        return back();
+        $article->user_id = $request->user()->id;
+        $article->title = $request->title;
+        $article->content = $request->articleContent;
+
+        if($article->save()){
+            if($request->category) {
+                $article->categories()->sync($request->category);
+            }
+            Session::flash('flash_message', 'Статья успешно создана');
+            return back();
+        }
+        else{
+            return Redirect::back()->withErrors($article->errors());
+        }
     }
 
     /*
@@ -76,11 +89,49 @@ class BlogController extends Controller
      */
     public function update(Request $request, Articles $article)
     {
-        $article->update([
-            'user_id' => $request->user()->id,
-            'title' => $request->title,
-            'content' => $request->articleContent,
-            'category_id' => $request->category_id,
+        $article->user_id = $request->user()->id;
+        $article->title = $request->title;
+        $article->content = $request->articleContent;
+
+        if($article->update()){
+            if($request->category) {
+                $article->categories()->sync($request->category);
+            }
+            Session::flash('flash_message', 'Статья успешно сохранена');
+            return back();
+        }
+        else{
+            return Redirect::back()->withErrors($article->errors());
+        }
+
+        return back();
+    }
+
+    /*
+     * Categories list page
+     */
+    public function categories()
+    {
+        $categories = new Categories;
+
+        $data = [
+            'categories' => $categories->get_with_parent(),
+        ];
+
+        return view('blog.categories', compact('data'));
+    }
+
+    /*
+     * Creates new category
+     */
+    public function create_category(Request $request)
+    {
+        $has_parent = false;
+        if(!$request->parent_id == 0) $has_parent = true;
+        Categories::create([
+            'name' => $request->title,
+            'parent_id' => $request->parent_id,
+            'has_parent' => $has_parent,
         ]);
 
         return back();

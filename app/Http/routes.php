@@ -25,3 +25,6 @@ Route::post('/administrator/blog', 'BlogController@store');
 Route::get('/administrator/blog/edit/{article}', 'BlogController@edit');
 Route::patch('/administrator/blog/edit/{article}/update', 'BlogController@update');
 Route::post('/administrator/blog/destroy', 'BlogController@destroy');
+Route::get('/administrator/blog/categories', 'BlogController@categories');
+Route::post('/administrator/blog/categories/create', 'BlogController@create_category');
+Route::get('/administrator/blog/categories/{id}/delete');
