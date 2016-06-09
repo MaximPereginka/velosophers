@@ -19,7 +19,7 @@ Route::get('/administrator', 'PagesController@administrator_index');
  * Administrator blog routes
  */
 Route::get('/', 'PagesController@administrator_index');
-Route::get('/administrator/blog', 'BlogController@index');
+Route::get('/administrator/blog', 'BlogController@administrator_index');
 Route::get('/administrator/blog/own', 'BlogController@own');
 Route::get('/administrator/blog/create', 'BlogController@create');
 Route::post('/administrator/blog', 'BlogController@store');

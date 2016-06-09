@@ -13,10 +13,15 @@ use Illuminate\Support\Facades\Session;
 
 class BlogController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /*
      * All articles list page
      */
-    public function index()
+    public function administrator_index()
     {
         $articles = new Articles;
         $articles = $articles->all();
@@ -69,6 +74,17 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
+        /*
+         * Validation
+         */
+        $this->validate($request, [
+            'title' => 'required|max:255',
+            'preview' => 'required|max:255',
+            'articleContent' => 'required',
+            'status_id' => 'integer|required',
+            'category.*' => 'integer'
+        ]);
+
         $article = new Articles;
 
         $article->user_id = $request->user()->id;
@@ -111,7 +127,17 @@ class BlogController extends Controller
      */
     public function update(Request $request, Articles $article)
     {
-        $article->user_id = $request->user()->id;
+        /*
+ * Validation
+ */
+        $this->validate($request, [
+            'title' => 'required|max:255',
+            'preview' => 'required|max:255',
+            'articleContent' => 'required',
+            'status_id' => 'integer|required',
+            'category.*' => 'integer'
+        ]);
+
         $article->title = $request->title;
         $article->preview = $request->preview;
         $article->img = $request->img_url;
@@ -167,6 +193,15 @@ class BlogController extends Controller
     public function create_category(Request $request)
     {
         $has_parent = false;
+
+        /*
+         * Validation
+         */
+        $this->validate($request, [
+            'title' => 'required|max:255',
+            'parent_id' => 'required|integer',
+        ]);
+
         if(!$request->parent_id == 0) $has_parent = true;
         if(Categories::create([
             'name' => $request->title,

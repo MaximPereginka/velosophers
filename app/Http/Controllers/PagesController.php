@@ -8,6 +8,10 @@ use App\Http\Requests;
 
 class PagesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /*
      * Control panel home page
      */
