@@ -107,9 +107,16 @@ class BlogController extends Controller
     }
 
     /*
+     * Article preview page
+     */
+    public function administrator_view(Articles $article)
+    {
+        return view('blog.administrator_view', compact('article'));
+    }
+
+    /*
      * Editing existing article page
      */
-
     public function edit(Articles $article)
     {
         $categories = new Categories();
@@ -128,8 +135,8 @@ class BlogController extends Controller
     public function update(Request $request, Articles $article)
     {
         /*
- * Validation
- */
+         * Validation
+         */
         $this->validate($request, [
             'title' => 'required|max:255',
             'preview' => 'required|max:255',
@@ -148,6 +155,9 @@ class BlogController extends Controller
             if($request->category) {
                 $article->categories()->sync($request->category);
             }
+            else {
+                $article->categories()->detach();
+            }
             Session::flash('flash_message', 'Статья успешно сохранена');
             return back();
         }
@@ -164,6 +174,7 @@ class BlogController extends Controller
     public function delete(Articles $article)
     {
         if($article->delete()){
+            $article->categories()->detach();
             Session::flash('flash_message', 'Статья успешно удалена');
         }
         else {

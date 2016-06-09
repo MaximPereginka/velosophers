@@ -18,6 +18,10 @@
             <label>&nbsp;</label>
 
             <div class="form-group">
+                <a target="_blank" class="btn btn-default" href="/administrator/blog/view/{{ $article->id }}" alt="{{ $article->title }}">Предварительный просмотр</a>
+            </div>
+
+            <div class="form-group">
                 <button type="submit" class="btn btn-primary">Сохранить</button>
                 <a class="btn btn-danger" href="/administrator/blog/article/{{ $article->id }}/delete">Удалить</a>
             </div>

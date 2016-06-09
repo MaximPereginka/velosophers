@@ -2,7 +2,7 @@
 <div class="col-md-12">
     <div class="list-group">
         @foreach($articles as $article)
-            <a href="/administrator/blog/edit/{{ $article->id }}" class="list-group-item">
+            <a href="/administrator/blog/view/{{ $article->id }}" class="list-group-item">
                 <h3 class="list-group-item-heading">{{ $article->title }}</h3>
                 <div class="list-group-item-text">
                     <div class="row">
