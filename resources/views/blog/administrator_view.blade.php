@@ -11,7 +11,9 @@
         <div class="panel panel-default">
             <div class="panel-heading">Подробности</div>
             <div class="panel-body">
-                <img width="100%" class="thumbnail" src="{{ $article->img }}" alt="{{ $article->title }}" />
+                @if($article->img)
+                    <img width="100%" class="thumbnail" src="{{ $article->img }}" alt="{{ $article->title }}" />
+                @endif
                 <div class="details">
                     <p><b>Автор: </b>{{ $article->user->name }}</p>
                     <p style="line-height: 25px"><b>Категории: </b>
