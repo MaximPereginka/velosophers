@@ -11,7 +11,7 @@
 
         </div>
         <div class="col-md-4">
-            <!-- Article status -->
+            <!-- Article status-->
             @include('helpers.administrator.article_status_select')
 
             <!-- Article categories -->

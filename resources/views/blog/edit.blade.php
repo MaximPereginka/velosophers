@@ -18,7 +18,7 @@
             <label>&nbsp;</label>
 
             <div class="form-group">
-                <a target="_blank" class="btn btn-default" href="/administrator/blog/view/{{ $article->id }}" alt="{{ $article->title }}">Предварительный просмотр</a>
+                <a target="_blank" class="btn btn-default" href="/administrator/blog/view/{{ $article->id }}" title="{{ $article->title }}">Предварительный просмотр</a>
             </div>
 
             <div class="form-group">
@@ -29,7 +29,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Детали</div>
                 <div class="panel-body">
-                    <p><b>Автор:</b> {{ $article->user->name }}</p>
+                    <p><b>Автор: </b>{{ (isset($article->user->name)) ? $article->user->name : "Velosophers"}}</p>
 
                     <!-- Article status -->
                     @include('helpers.administrator.article_status_select')

@@ -99,6 +99,7 @@ class BlogController extends Controller
                 $article->categories()->sync($request->category);
             }
             Session::flash('flash_message', 'Статья успешно создана');
+            Session::flash('flash_message_level', 'success');
             return \Redirect::to("/administrator/blog/edit/".$article->id);
         }
         else{
@@ -159,13 +160,12 @@ class BlogController extends Controller
                 $article->categories()->detach();
             }
             Session::flash('flash_message', 'Статья успешно сохранена');
+            Session::flash('flash_message_level', 'success');
             return back();
         }
         else{
             return Redirect::back()->withErrors($article->errors());
         }
-
-        return back();
     }
 
     /*
@@ -176,9 +176,11 @@ class BlogController extends Controller
         if($article->delete()){
             $article->categories()->detach();
             Session::flash('flash_message', 'Статья успешно удалена');
+            Session::flash('flash_message_level', 'success');
         }
         else {
             Session::flash('flash_message', 'Ошибка удаления статьи');
+            Session::flash('flash_message_level', 'danger');
         }
 
         return \Redirect::to('/administrator/blog/own');

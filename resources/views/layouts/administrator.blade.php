@@ -49,14 +49,23 @@
                         <li><a href="/administrator/blog/categories">Категории</a></li>
                     </ul>
                 </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Пользователи<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/administrator/users/create">Добавить пользователя</a></li>
+                        <li><a href="/administrator/users">Все пользователи</a></li>
+                        <li><a href="/administrator/users/edit/{{ Auth::user()->id }}">Личный кабинет</a></li>
+                    </ul>
+                </li>
             </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{ url('/login') }}">Login</a></li>
-                    <li><a href="{{ url('/register') }}">Register</a></li>
+                    <li><a href="{{ url('/login') }}">Вход</a></li>
+                    <li><a href="{{ url('/register') }}">Регистрация</a></li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -64,6 +73,11 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="/administrator/users/edit/{{ Auth::user()->id }}">
+                                    <i class="fa fa-btn fa-user"></i>Личный кабинет
+                                </a>
+                            </li>
                             <li>
                                 <a href="/administrator/blog/own">
                                     <i class="fa fa-btn fa-file-text-o"></i>Мои публикации
@@ -82,14 +96,7 @@
     </div>
 </nav>
 
-@if(Session::get('flash_message'))
-    <div class="container">
-        <div class="alert alert-dismissible alert-success">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            {{Session::get('flash_message')}}
-        </div>
-    </div>
-@endif
+@include('helpers.administrator.flash_message')
 
 @if(count($errors))
     <div class="container">

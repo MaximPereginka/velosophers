@@ -31,3 +31,14 @@ Route::get('/administrator/blog/category/{category}', 'BlogController@category')
 Route::get('/administrator/blog/categories', 'BlogController@categories');
 Route::post('/administrator/blog/categories/create', 'BlogController@create_category');
 Route::get('/administrator/blog/categories/{category}/delete', 'BlogController@delete_category');
+
+/*
+ * User management pages
+ */
+Route::get('/administrator/users', 'UserController@index');
+Route::get('/administrator/users/edit/{user}', 'UserController@edit');
+Route::get('/administrator/users/create', 'UserController@create');
+Route::post('/administrator/users/store', 'UserController@store');
+Route::patch('/administrator/users/{user}/update', 'UserController@update');
+Route::patch('/administrator/users/{user}/password', 'UserController@password');
+Route::get('/administrator/users/{user}/delete', 'UserController@delete');

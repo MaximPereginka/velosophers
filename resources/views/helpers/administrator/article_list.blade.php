@@ -10,7 +10,7 @@
                             <img class="thumbnail" style="width: 100%; height: auto" src="{{ (!empty($article->img)) ? $article->img : "/img/administrator/no-image.png" }}" alt="{{ $article->title }}" />
                         </div>
                         <div class="col-md-10">
-                            <p><b>Автор: </b>{{ $article->user->name }}</p>
+                            <p><b>Автор: </b>{{ (isset($article->user->name)) ? $article->user->name : "Velosophers"}}</p>
                             <p><b>Статус: </b>{{ $article->status->name }}</p>
                             @if(!$article->categories->isEmpty())
                                 <h4>

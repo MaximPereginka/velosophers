@@ -15,7 +15,7 @@
                     <img width="100%" class="thumbnail" src="{{ $article->img }}" alt="{{ $article->title }}" />
                 @endif
                 <div class="details">
-                    <p><b>Автор: </b>{{ $article->user->name }}</p>
+                    <p><b>Автор: </b>{{ (isset($article->user->name)) ? $article->user->name : "Velosophers"}}</p>
                     <p style="line-height: 25px"><b>Категории: </b>
                         @if($article->categories)
                             @foreach($article->categories as $category)

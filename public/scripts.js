@@ -6,13 +6,15 @@ function fix_video(width){
     var elems = document.getElementsByTagName('iframe');
     var length = elems.length;
     for(var i=0; i < length; i++) {
-        if(width <= 960){
-            elems[i].parentNode.style = "height: 0; position: relative; padding-bottom: 56.25%";
-            elems[i].style = "left: 0; position: absolute; top: 0; width: 100%; height: 100%";
-        }
-        else {
-            elems[i].style = "";
-            elems[i].parentNode.style = "text-align:center";
+        if (elems[i].id != "articleContent_ifr") {
+            if(width <= 960){
+                elems[i].parentNode.style = "height: 0; position: relative; padding-bottom: 56.25%";
+                elems[i].style = "left: 0; position: absolute; top: 0; width: 100%; height: 100%";
+            }
+            else {
+                elems[i].style = "";
+                elems[i].parentNode.style = "text-align:center";
+            }
         }
     }
 }
