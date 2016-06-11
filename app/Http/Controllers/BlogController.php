@@ -211,7 +211,7 @@ class BlogController extends Controller
          * Validation
          */
         $this->validate($request, [
-            'title' => 'required|max:255',
+            'title' => 'required|max:255|unique:categories,name',
             'parent_id' => 'required|integer',
         ]);
 

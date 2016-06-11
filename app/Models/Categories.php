@@ -49,14 +49,15 @@ class Categories extends Model
         }
 
         /*
+         * Deleting relations with articles
+         */
+        if(!$this->articles->isEmpty()) {
+            if(!$result = $this->articles()->detach()) return false;
+        }
+        /*
          * If no child categories - deleting this category
          */
-        $result = $this->articles()->detach();
-        if($result) {
-            $result = $this->delete();
-        }
-
-        return $result;
+        return $this->delete();
     }
 
     /*

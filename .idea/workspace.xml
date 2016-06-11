@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e267fa59-6a0a-4d77-9def-d5c1ddf921f0" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Categories.php" afterPath="$PROJECT_DIR$/app/Models/Categories.php" />
     </list>
     <ignored path="velosophers.iws" />
@@ -37,32 +39,14 @@
       <file leaf-file-name="Categories.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Models/Categories.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+            <state relative-caret-position="337">
+              <caret line="54" column="68" selection-start-line="54" selection-start-column="68" selection-end-line="54" selection-end-column="68" />
               <folding>
                 <element signature="e#240#490#0#PHP" expanded="false" />
-                <element signature="e#1809#1956#0#PHP" expanded="false" />
-                <marker date="1465617218885" expanded="true" signature="320:472" ph="SELECT `c1`.... categories" />
-                <marker date="1465617218885" expanded="true" signature="1674:1721" ph="SELECT * FRO... categories" />
-                <marker date="1465617218885" expanded="true" signature="1674:1728" ph="SELECT * FRO... categories" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BlogController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BlogController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="235" column="33" selection-start-line="235" selection-start-column="33" selection-end-line="235" selection-end-column="33" />
-              <folding>
-                <element signature="e#452#644#0#PHP" expanded="false" />
-                <element signature="e#711#887#0#PHP" expanded="false" />
-                <element signature="e#957#1198#0#PHP" expanded="false" />
-                <element signature="e#1252#1545#0#PHP" expanded="false" />
-                <element signature="e#4519#5008#0#PHP" expanded="false" />
-                <element signature="e#5057#5283#0#PHP" expanded="false" />
-                <marker date="1465616937272" expanded="false" signature="5381:6009" ph="{...}" />
+                <element signature="e#1886#2033#0#PHP" expanded="false" />
+                <marker date="1465618248795" expanded="true" signature="320:472" ph="SELECT `c1`.... categories" />
+                <marker date="1465618248795" expanded="true" signature="1751:1798" ph="SELECT * FRO... categories" />
+                <marker date="1465618248795" expanded="true" signature="1751:1805" ph="SELECT * FRO... categories" />
               </folding>
             </state>
           </provider>
@@ -294,6 +278,38 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="velosophers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="velosophers" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="migrations" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="velosophers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="velosophers" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -390,12 +406,12 @@
       <workItem from="1465437922652" duration="2334000" />
       <workItem from="1465509230670" duration="18787000" />
       <workItem from="1465568235090" duration="14893000" />
-      <workItem from="1465612145564" duration="5040000" />
+      <workItem from="1465612145564" duration="6065000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139666000" />
+    <option name="totallyTimeSpent" value="140691000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -747,6 +763,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BlogController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="213" column="63" selection-start-line="213" selection-start-column="63" selection-end-line="213" selection-end-column="63" />
+          <folding>
+            <element signature="e#452#644#0#PHP" expanded="false" />
+            <element signature="e#711#887#0#PHP" expanded="false" />
+            <element signature="e#957#1198#0#PHP" expanded="false" />
+            <element signature="e#1252#1545#0#PHP" expanded="false" />
+            <element signature="e#4519#5008#0#PHP" expanded="false" />
+            <element signature="e#5057#5283#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/helpers/administrator/user_edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -755,32 +786,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BlogController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="235" column="33" selection-start-line="235" selection-start-column="33" selection-end-line="235" selection-end-column="33" />
-          <folding>
-            <element signature="e#452#644#0#PHP" expanded="false" />
-            <element signature="e#711#887#0#PHP" expanded="false" />
-            <element signature="e#957#1198#0#PHP" expanded="false" />
-            <element signature="e#1252#1545#0#PHP" expanded="false" />
-            <element signature="e#4519#5008#0#PHP" expanded="false" />
-            <element signature="e#5057#5283#0#PHP" expanded="false" />
-            <marker date="1465616937272" expanded="false" signature="5381:6009" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Categories.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        <state relative-caret-position="337">
+          <caret line="54" column="68" selection-start-line="54" selection-start-column="68" selection-end-line="54" selection-end-column="68" />
           <folding>
             <element signature="e#240#490#0#PHP" expanded="false" />
-            <element signature="e#1809#1956#0#PHP" expanded="false" />
-            <marker date="1465617218885" expanded="true" signature="320:472" ph="SELECT `c1`.... categories" />
-            <marker date="1465617218885" expanded="true" signature="1674:1721" ph="SELECT * FRO... categories" />
-            <marker date="1465617218885" expanded="true" signature="1674:1728" ph="SELECT * FRO... categories" />
+            <element signature="e#1886#2033#0#PHP" expanded="false" />
+            <marker date="1465618248795" expanded="true" signature="320:472" ph="SELECT `c1`.... categories" />
+            <marker date="1465618248795" expanded="true" signature="1751:1798" ph="SELECT * FRO... categories" />
+            <marker date="1465618248795" expanded="true" signature="1751:1805" ph="SELECT * FRO... categories" />
           </folding>
         </state>
       </provider>
