@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e267fa59-6a0a-4d77-9def-d5c1ddf921f0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Categories.php" afterPath="$PROJECT_DIR$/app/Models/Categories.php" />
     </list>
     <ignored path="velosophers.iws" />
@@ -39,16 +38,14 @@
       <file leaf-file-name="Categories.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Models/Categories.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="27" column="45" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
+            <state relative-caret-position="289">
+              <caret line="46" column="19" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="19" />
               <folding>
                 <element signature="e#240#490#0#PHP" expanded="false" />
-                <element signature="e#589#1329#0#PHP" expanded="false" />
-                <element signature="e#1669#1816#0#PHP" expanded="false" />
-                <marker date="1465615859434" expanded="true" signature="320:472" ph="SELECT `c1`.... categories" />
-                <marker date="1465615859434" expanded="true" signature="1253:1291" ph="DELETE FROM " />
-                <marker date="1465615859434" expanded="true" signature="1534:1581" ph="SELECT * FRO... categories" />
-                <marker date="1465615859434" expanded="true" signature="1534:1588" ph="SELECT * FRO... categories" />
+                <element signature="e#1811#1958#0#PHP" expanded="false" />
+                <marker date="1465617153938" expanded="true" signature="320:472" ph="SELECT `c1`.... categories" />
+                <marker date="1465617153938" expanded="true" signature="1676:1723" ph="SELECT * FRO... categories" />
+                <marker date="1465617153938" expanded="true" signature="1676:1730" ph="SELECT * FRO... categories" />
               </folding>
             </state>
           </provider>
@@ -57,15 +54,16 @@
       <file leaf-file-name="BlogController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BlogController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="77">
-              <caret line="234" column="5" selection-start-line="234" selection-start-column="5" selection-end-line="234" selection-end-column="5" />
+            <state relative-caret-position="304">
+              <caret line="235" column="33" selection-start-line="235" selection-start-column="33" selection-end-line="235" selection-end-column="33" />
               <folding>
                 <element signature="e#452#644#0#PHP" expanded="false" />
                 <element signature="e#711#887#0#PHP" expanded="false" />
                 <element signature="e#957#1198#0#PHP" expanded="false" />
                 <element signature="e#1252#1545#0#PHP" expanded="false" />
+                <element signature="e#4519#5008#0#PHP" expanded="false" />
                 <element signature="e#5057#5283#0#PHP" expanded="false" />
-                <marker date="1465615368639" expanded="false" signature="5381:6009" ph="{...}" />
+                <marker date="1465616937272" expanded="false" signature="5381:6009" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -393,12 +391,12 @@
       <workItem from="1465437922652" duration="2334000" />
       <workItem from="1465509230670" duration="18787000" />
       <workItem from="1465568235090" duration="14893000" />
-      <workItem from="1465612145564" duration="3735000" />
+      <workItem from="1465612145564" duration="4975000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138361000" />
+    <option name="totallyTimeSpent" value="139601000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -760,31 +758,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BlogController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="234" column="5" selection-start-line="234" selection-start-column="5" selection-end-line="234" selection-end-column="5" />
+        <state relative-caret-position="304">
+          <caret line="235" column="33" selection-start-line="235" selection-start-column="33" selection-end-line="235" selection-end-column="33" />
           <folding>
             <element signature="e#452#644#0#PHP" expanded="false" />
             <element signature="e#711#887#0#PHP" expanded="false" />
             <element signature="e#957#1198#0#PHP" expanded="false" />
             <element signature="e#1252#1545#0#PHP" expanded="false" />
+            <element signature="e#4519#5008#0#PHP" expanded="false" />
             <element signature="e#5057#5283#0#PHP" expanded="false" />
-            <marker date="1465615368639" expanded="false" signature="5381:6009" ph="{...}" />
+            <marker date="1465616937272" expanded="false" signature="5381:6009" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Categories.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="27" column="45" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
+        <state relative-caret-position="289">
+          <caret line="46" column="19" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="19" />
           <folding>
             <element signature="e#240#490#0#PHP" expanded="false" />
-            <element signature="e#589#1329#0#PHP" expanded="false" />
-            <element signature="e#1669#1816#0#PHP" expanded="false" />
-            <marker date="1465615859434" expanded="true" signature="320:472" ph="SELECT `c1`.... categories" />
-            <marker date="1465615859434" expanded="true" signature="1253:1291" ph="DELETE FROM " />
-            <marker date="1465615859434" expanded="true" signature="1534:1581" ph="SELECT * FRO... categories" />
-            <marker date="1465615859434" expanded="true" signature="1534:1588" ph="SELECT * FRO... categories" />
+            <element signature="e#1811#1958#0#PHP" expanded="false" />
+            <marker date="1465617153938" expanded="true" signature="320:472" ph="SELECT `c1`.... categories" />
+            <marker date="1465617153938" expanded="true" signature="1676:1723" ph="SELECT * FRO... categories" />
+            <marker date="1465617153938" expanded="true" signature="1676:1730" ph="SELECT * FRO... categories" />
           </folding>
         </state>
       </provider>

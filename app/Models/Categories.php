@@ -22,33 +22,39 @@ class Categories extends Model
     }
 
     /*
+     * NEED TO REWRITE
+     *
      * Receives category id
      * Deletes category and it's child categories
      */
-    public function delete_with_children($id)
+    public function delete_with_children()
     {
-        $id = (int)$id;
-
-        if(!empty($this->get_children_list($id))) {
+        if(!empty($this->get_children_list($this->id))) {
             /*
              * Getting all children and checking them
              */
-            foreach($this->get_children_list($id) as $cat){
-                $result = $this->delete_with_children($cat->id);
+            foreach($this->get_children_list($this->id) as $cat){
+                $child = new Categories;
+                $child = $child->find($cat->id);
+
+                $result = $child->delete_with_children();
 
                 /*
                  * Checking problems with deleting child categories
                  */
                 if(!$result){
                     return $result;
-                }
+                }s 
             }
         }
 
         /*
          * If no child categories - deleting this category
          */
-        $result = DB::delete('DELETE FROM `categories` WHERE `id` = '.$id);
+        $result = $this->articles()->detach();
+        if($result) {
+            $result = $this->delete();
+        }
 
         return $result;
     }
