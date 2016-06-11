@@ -10,30 +10,16 @@ class Categories extends Model
     protected $fillable = ['name', 'parent_id', 'has_parent'];
 
     /*
-     * Returns categories with their parents
-     */
-    public function get_with_parent()
-    {
-        return DB::select('
-            SELECT `c1`.*, `c2`.`name` as `parent` 
-            FROM `categories` AS `c1`
-            LEFT JOIN `categories` as `c2` ON `c1`.`parent_id` = `c2`.`id`
-        ');
-    }
-
-    /*
-     * NEED TO REWRITE
-     *
      * Receives category id
      * Deletes category and it's child categories
      */
     public function delete_with_children()
     {
-        if(!empty($this->get_children_list($this->id))) {
+        if(!empty($this->get_children_list())) {
             /*
              * Getting all children and checking them
              */
-            foreach($this->get_children_list($this->id) as $cat){
+            foreach($this->get_children_list() as $cat){
                 $child = new Categories;
                 $child = $child->find($cat->id);
 
@@ -61,15 +47,12 @@ class Categories extends Model
     }
 
     /*
-     * Receives category id
-     * Returns list of children categories
+     * Returns array of children categories
      */
-    protected function get_children_list($id)
+    protected function get_children_list()
     {
-        $id = (int)$id;
-
         return DB::select('
-            SELECT * FROM `categories` WHERE `parent_id` = '.$id.'
+            SELECT * FROM `categories` WHERE `parent_id` = '.$this->id.'
         ');
     }
 

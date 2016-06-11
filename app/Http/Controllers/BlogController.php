@@ -192,10 +192,88 @@ class BlogController extends Controller
     public function categories()
     {
         $categories = new Categories;
+        $GLOBALS['categories'] = $categories->orderBy('id','asc')->orderBy('has_parent','asc')->get();
+        $GLOBALS['tree'] = [];
+        $GLOBALS['nesting'] = 0;
+        $GLOBALS['length'] = count($GLOBALS['categories']);
+
+        /*
+         * Receives id of category
+         * Returns true if category has children
+         * Returns false otherwise
+         */
+        function has_children($id)
+        {
+            foreach ($GLOBALS['categories'] as $category){
+                if(!is_null($category)){
+                    if($category->parent_id == $id) return true;
+                }
+            }
+            return false;
+        }
+
+        /*
+         * Receives id of category
+         * Saving child categories (category object|nesting)
+         */
+        function get_children($id){
+            $GLOBALS['nesting']++;
+            $children = [];
+
+            for($i = 0; $i < $GLOBALS['length']; $i++){
+                if(is_null($GLOBALS['categories'][$i])){
+                    continue;
+                }
+                else {
+                    if($GLOBALS['categories'][$i]->parent_id == $id) {
+                        $current = [
+                            'category' => $current['category'] = $GLOBALS['categories'][$i],
+                            'nesting' => $GLOBALS['nesting'],
+                        ];
+                        array_push($GLOBALS['tree'], $current);
+
+                        if(has_children($GLOBALS['categories'][$i]->id)){
+                            get_children($GLOBALS['categories'][$i]->id);
+
+                        }
+                        $GLOBALS['categories'][$i] = null;
+                    }
+                }
+            }
+
+            $GLOBALS['nesting']--;
+            return $children;
+        }
+
+        for($i = 0; $i < $GLOBALS['length']; $i++){
+            if(is_null($GLOBALS['categories'][$i])){
+                continue;
+            }
+            else {
+                $current = [
+                    'category' => $GLOBALS['categories'][$i],
+                    'nesting' => $GLOBALS['nesting'],
+                ];
+
+                array_push($GLOBALS['tree'], $current);
+
+                if(has_children($GLOBALS['categories'][$i]->id)){
+                    get_children($GLOBALS['categories'][$i]->id);
+                }
+
+                $GLOBALS['categories'][$i] = null;
+            }
+        }
 
         $data = [
-            'categories' => $categories->get_with_parent(),
+            'tree' => $GLOBALS['tree'],
+            'categories' => $categories->all(),
         ];
+
+        unset($GLOBALS['categories']);
+        unset($GLOBALS['length']);
+        unset($GLOBALS['tree']);
+        unset($GLOBALS['nesting']);
 
         return view('blog.categories', compact('data'));
     }
