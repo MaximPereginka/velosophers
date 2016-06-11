@@ -44,7 +44,7 @@ class Categories extends Model
                  */
                 if(!$result){
                     return $result;
-                }s 
+                }
             }
         }
 
