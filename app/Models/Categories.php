@@ -22,6 +22,51 @@ class Categories extends Model
     }
 
     /*
+     * Receives category id
+     * Deletes category and it's child categories
+     */
+    public function delete_with_children($id)
+    {
+        $id = (int)$id;
+
+        if(!empty($this->get_children_list($id))) {
+            /*
+             * Getting all children and checking them
+             */
+            foreach($this->get_children_list($id) as $cat){
+                $result = $this->delete_with_children($cat->id);
+
+                /*
+                 * Checking problems with deleting child categories
+                 */
+                if(!$result){
+                    return $result;
+                }
+            }
+        }
+
+        /*
+         * If no child categories - deleting this category
+         */
+        $result = DB::delete('DELETE FROM `categories` WHERE `id` = '.$id);
+
+        return $result;
+    }
+
+    /*
+     * Receives category id
+     * Returns list of children categories
+     */
+    protected function get_children_list($id)
+    {
+        $id = (int)$id;
+
+        return DB::select('
+            SELECT * FROM `categories` WHERE `parent_id` = '.$id.'
+        ');
+    }
+
+    /*
      * Relation with Article_status table
      */
     public function articles()

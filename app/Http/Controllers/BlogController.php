@@ -220,21 +220,26 @@ class BlogController extends Controller
             'name' => $request->title,
             'parent_id' => $request->parent_id,
             'has_parent' => $has_parent,
-        ])) Session::flash('flash_message', 'Категория успешно создана');
+        ])) {
+            Session::flash('flash_message', 'Категория успешно создана');
+            Session::flash('flash_message_level', 'success');
+        }
 
         return back();
     }
 
     /*
-     * Deleting existing category
+     * Deleting existing category and it's children
      */
     public function delete_category(Categories $category)
     {
-        if($category->delete()){
+        if($category->delete_with_children($category->id)){
             Session::flash('flash_message', 'Категория успешно удалена');
+            Session::flash('flash_message_level', 'success');
         }
         else {
             Session::flash('flash_message', 'Ошибка удаления категории');
+            Session::flash('flash_message_level', 'danger');
         }
 
         return \Redirect::to('/administrator/blog/categories');
