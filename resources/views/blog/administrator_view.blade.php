@@ -16,12 +16,12 @@
                 @endif
                 <div class="details">
                     <p><b>Автор: </b>{{ (isset($article->user->name)) ? $article->user->name : "Velosophers"}}</p>
+                    @if(!$article->categories->isEmpty())
                     <p style="line-height: 25px"><b>Категории: </b>
-                        @if($article->categories)
-                            @foreach($article->categories as $category)
-                                <a target="_blank" class="btn btn-xs btn-success" href="/administrator/blog/category/{{ $category->id }}" alt="{{ $category->name }}">{{ $category->name }}</a>
-                            @endforeach
-                        @endif
+                    @foreach($article->categories as $category)
+                            <a target="_blank" class="btn btn-xs btn-success" href="/administrator/blog/category/{{ $category->id }}" alt="{{ $category->name }}">{{ $category->name }}</a>
+                        @endforeach
+                    @endif
                     </p>
                     <p><b>Дата создания: </b>{{ $article->created_at->format('d.m.o') }}</p>
                     <p><a style="width: 100%" class="btn btn-primary" href="/administrator/blog/edit/{{ $article->id }}" alt="{{ $article->title }}">Редактировать</a></p>

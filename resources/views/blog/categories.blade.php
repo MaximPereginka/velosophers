@@ -48,7 +48,7 @@
                         {{ $category->parent }}
                     @endif
                 </td>
-                <td class="pull-right"><a class="btn btn-danger" href="/administrator/blog/categories/{{ $category->id }}/delete">Удалить</a></td>
+                <td class="text-right"><a class="btn btn-danger" href="/administrator/blog/categories/{{ $category->id }}/delete">Удалить</a></td>
             </tr>
             @endforeach
             </tbody>
