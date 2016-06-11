@@ -122,10 +122,16 @@ class BlogController extends Controller
     {
         $categories = new Categories();
         $statuses = new Article_Status();
+
         $data = [
             'categories' => $categories->all(),
             'statuses' => $statuses->all()
         ];
+
+        if(is_null($article->user)){
+            $users = new User;
+            $data['users'] = $users->whereIn('user_type', [2,4])->get();
+        }
 
         return view('blog.edit', compact('article', 'data'));
     }
@@ -143,7 +149,8 @@ class BlogController extends Controller
             'preview' => 'required|max:255',
             'articleContent' => 'required',
             'status_id' => 'integer|required',
-            'category.*' => 'integer'
+            'category.*' => 'integer',
+            'user' => 'integer|in:2,4',
         ]);
 
         $article->title = $request->title;
@@ -151,6 +158,12 @@ class BlogController extends Controller
         $article->img = $request->img_url;
         $article->content = $request->articleContent;
         $article->status_id = $request->status_id;
+        if(isset($request->user_id) and (\Auth::user()->user_type == 4)) $article->user_id = $request->user_id;
+        else {
+            Session::flash('flash_message', 'Вы не можете назначать авторов');
+            Session::flash('flash_message_level', 'danger');
+            back();
+        }
 
         if($article->update()){
             if($request->category) {

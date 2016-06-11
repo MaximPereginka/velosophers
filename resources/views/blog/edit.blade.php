@@ -30,6 +30,17 @@
                 <div class="panel-heading">Детали</div>
                 <div class="panel-body">
                     <p><b>Автор: </b>{{ (isset($article->user->name)) ? $article->user->name : "Velosophers"}}</p>
+                    @if(!isset($article->user->name) and (!$data['users']->isEmpty()))
+                        <div class="form-group">
+                            <label for="user_id" class="control-label">Назначить нового пользователя</label>
+                            <select class="form-control" id="user_id" name="user_id">
+                                <option value="">Выберите нового пользователя</option>
+                                @foreach($data['users'] as $user)
+                                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    @endif
 
                     <!-- Article status -->
                     @include('helpers.administrator.article_status_select')
