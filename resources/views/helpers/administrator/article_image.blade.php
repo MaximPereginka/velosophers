@@ -9,7 +9,7 @@
         @endif
         <div class="form-group margin-top">
             <label class="control-label" for="img_url">URL Изображения</label>
-            <input type="text" id="img_url" name="img_url" class="form-control" placeholder="Введите URL" value="{{ !empty($article->img) ? $article->img : '' }}">
+            <input type="text" id="img_url" name="img_url" class="form-control" placeholder="Введите URL" value="{{ !empty($article->img) ? $article->img : old('img_url') }}">
         </div>
     </div>
 </div>

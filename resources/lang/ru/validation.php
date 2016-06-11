@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'accepted'             => 'The :attribute must be accepted.',
-    'active_url'           => 'The :attribute is not a valid URL.',
+    'accepted'             => 'Поле :attribute должно быть одобренныым.',
+    'active_url'           => 'неактивный URL :attribute.',
     'after'                => 'The :attribute must be a date after :date.',
     'alpha'                => 'The :attribute may only contain letters.',
     'alpha_dash'           => 'The :attribute may only contain letters, numbers, and dashes.',
@@ -36,33 +36,33 @@ return [
     'digits_between'       => 'The :attribute must be between :min and :max digits.',
     'dimensions'           => 'The :attribute has invalid image dimensions.',
     'distinct'             => 'The :attribute field has a duplicate value.',
-    'email'                => 'The :attribute must be a valid email address.',
+    'email'                => 'Поле :attribute должно содержать верный email-адрес.',
     'exists'               => 'The selected :attribute is invalid.',
     'filled'               => 'The :attribute field is required.',
     'image'                => 'The :attribute must be an image.',
     'in'                   => 'The selected :attribute is invalid.',
     'in_array'             => 'The :attribute field does not exist in :other.',
-    'integer'              => 'The :attribute must be an integer.',
+    'integer'              => 'Поле :attribute должно содержать целое число.',
     'ip'                   => 'The :attribute must be a valid IP address.',
     'json'                 => 'The :attribute must be a valid JSON string.',
     'max'                  => [
-        'numeric' => 'The :attribute may not be greater than :max.',
+        'numeric' => 'Поле :attribute должно быть не более чем :max.',
         'file'    => 'The :attribute may not be greater than :max kilobytes.',
-        'string'  => 'The :attribute may not be greater than :max characters.',
-        'array'   => 'The :attribute may not have more than :max items.',
+        'string'  => 'Поле :attribute должно состоять не более чем из :max символов.',
+        'array'   => 'Поле :attribute не должно содержать более чем :max елементов.',
     ],
     'mimes'                => 'The :attribute must be a file of type: :values.',
     'min'                  => [
-        'numeric' => 'The :attribute must be at least :min.',
-        'file'    => 'The :attribute must be at least :min kilobytes.',
-        'string'  => 'The :attribute must be at least :min characters.',
-        'array'   => 'The :attribute must have at least :min items.',
+        'numeric' => 'Поле :attribute должно быть не меньше :min.',
+        'file'    => 'Поле :attribute must be at least :min kilobytes.',
+        'string'  => 'Поле :attribute должно состоять как минимум из :min символов.',
+        'array'   => 'Поле :attribute must have at least :min items.',
     ],
     'not_in'               => 'The selected :attribute is invalid.',
     'numeric'              => 'The :attribute must be a number.',
     'present'              => 'The :attribute field must be present.',
     'regex'                => 'The :attribute format is invalid.',
-    'required'             => 'The :attribute field is required.',
+    'required'             => 'Поле :attribute обязательно к заполнению.',
     'required_if'          => 'The :attribute field is required when :other is :value.',
     'required_unless'      => 'The :attribute field is required unless :other is in :values.',
     'required_with'        => 'The :attribute field is required when :values is present.',
@@ -76,10 +76,10 @@ return [
         'string'  => 'The :attribute must be :size characters.',
         'array'   => 'The :attribute must contain :size items.',
     ],
-    'string'               => 'The :attribute must be a string.',
-    'timezone'             => 'The :attribute must be a valid zone.',
-    'unique'               => 'The :attribute has already been taken.',
-    'url'                  => 'The :attribute format is invalid.',
+    'string'               => 'Поле :attribute должно быть строкой.',
+    'timezone'             => ':attribute должен быть существующей временной зоной.',
+    'unique'               => 'Поле :attribute уже занято.',
+    'url'                  => 'Неверная ссылка :attribute недопустима.',
 
     /*
     |--------------------------------------------------------------------------
@@ -109,6 +109,19 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'title' => '«Название»',
+        'preview' => '«Текст превью»',
+        'articleContent' => '«Текст статьи»',
+        'status_id' => '«Статус»',
+        'category.*' => '«Категории»',
+        'parent_id' => '«Родительская категория»',
+        'username' => '«Имя пользователя»',
+        'user_type' => '«Тип пользователя»',
+        'password' => '«Пароль»',
+        'old_pass' => '«Старый пароль»',
+        'new_pass' => '«Новый пароль»',
+        'new_again' => '«Подтвердите новый пароль»',
+    ],
 
 ];

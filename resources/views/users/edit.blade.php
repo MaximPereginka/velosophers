@@ -37,8 +37,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="new_again" class="control-label">Повторно новый пароль</label>
-                    <input type="password" class="form-control" id="new_again" name="new_again" placeholder="Повторно введите старый пароль">
+                    <label for="new_again" class="control-label">Подтвердите новый пароль</label>
+                    <input type="password" class="form-control" id="new_again" name="new_again" placeholder="Подтвердите введите старый пароль">
                 </div>
 
                 <div class="form-group">
