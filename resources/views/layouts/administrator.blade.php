@@ -43,19 +43,47 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Блог<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="/administrator/blog/create">Создать статью</a></li>
-                        <li><a href="/administrator/blog/own">Мои статьи</a></li>
-                        <li><a href="/administrator/blog">Все статьи</a></li>
-                        <li><a href="/administrator/blog/categories">Категории</a></li>
+                        <li>
+                            <a href="/administrator/blog/create">
+                                <i class="fa fa-btn fa-plus-square-o" aria-hidden="true"></i>Создать статью
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/administrator/blog/own">
+                                <i class="fa fa-btn fa-file-text-o"></i></i>Мои статьи
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/administrator/blog">
+                                <i class="fa fa-btn fa-newspaper-o" aria-hidden="true"></i>Все статьи
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/administrator/blog/categories">
+                                <i class="fa fa-btn fa-clone" aria-hidden="true"></i>Категории
+                            </a>
+                        </li>
                     </ul>
                 </li>
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Пользователи<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="/administrator/users/create">Добавить пользователя</a></li>
-                        <li><a href="/administrator/users">Все пользователи</a></li>
-                        <li><a href="/administrator/users/edit/{{ Auth::user()->id }}">Личный кабинет</a></li>
+                        <li>
+                            <a href="/administrator/users/create">
+                                <i class="fa fa-btn fa-user-plus"></i>Добавить пользователя
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/administrator/users">
+                                <i class="fa fa-btn fa-users"></i>Все пользователи
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/administrator/users/edit/{{ Auth::user()->id }}">
+                                <i class="fa fa-btn fa-home"></i>Личный кабинет
+                            </a>
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -75,7 +103,7 @@
                         <ul class="dropdown-menu" role="menu">
                             <li>
                                 <a href="/administrator/users/edit/{{ Auth::user()->id }}">
-                                    <i class="fa fa-btn fa-user"></i>Личный кабинет
+                                    <i class="fa fa-btn fa-home"></i>Личный кабинет
                                 </a>
                             </li>
                             <li>
