@@ -39,7 +39,7 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/administrator') }}">
+            <a class="navbar-brand" href="{{ url('dashboard') }}">
                 Velosophers
             </a>
         </div>

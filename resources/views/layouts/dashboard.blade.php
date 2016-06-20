@@ -31,61 +31,17 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/administrator') }}">
+            <a class="navbar-brand" href="{{ url('/dashboard') }}">
                 Velosophers
             </a>
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
-
-            <!-- Main menu -->
             <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Блог<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-                            <a href="/administrator/blog/create">
-                                <i class="fa fa-btn fa-plus-square-o" aria-hidden="true"></i>Создать статью
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/administrator/blog/own">
-                                <i class="fa fa-btn fa-file-text-o"></i></i>Мои статьи
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/administrator/blog">
-                                <i class="fa fa-btn fa-newspaper-o" aria-hidden="true"></i>Все статьи
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/administrator/blog/categories">
-                                <i class="fa fa-btn fa-clone" aria-hidden="true"></i>Категории
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Пользователи<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-                            <a href="/administrator/users/create">
-                                <i class="fa fa-btn fa-user-plus"></i>Добавить пользователя
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/administrator/users">
-                                <i class="fa fa-btn fa-users"></i>Все пользователи
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/administrator/users/edit/{{ Auth::user()->id }}">
-                                <i class="fa fa-btn fa-home"></i>Личный кабинет
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                <!-- Author navbar -->
+                @if(Auth::user()->user_type == 2)
+                    @include('helpers.dashboard.author.navbar')
+                @endif
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -102,15 +58,17 @@
 
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="/administrator/users/edit/{{ Auth::user()->id }}">
+                                <a href="/dashboard/private_office">
                                     <i class="fa fa-btn fa-home"></i>Личный кабинет
                                 </a>
                             </li>
-                            <li>
-                                <a href="/administrator/blog/own">
-                                    <i class="fa fa-btn fa-file-text-o"></i>Мои публикации
-                                </a>
-                            </li>
+                            @if(in_array(Auth::user()->user_type, [2,4]))
+                                <li>
+                                    <a href="/dashboard/author/articles/own">
+                                        <i class="fa fa-btn fa-file-image-o"></i>Мои публикации
+                                    </a>
+                                </li>
+                            @endif
                             <li>
                                 <a href="{{ url('/logout') }}">
                                     <i class="fa fa-btn fa-sign-out"></i>Выйти
@@ -124,19 +82,12 @@
     </div>
 </nav>
 
-@include('helpers.administrator.flash_message')
+@if(Session::has('flash_message_text'))
+    @include('helpers.dashboard.mutual.flash_messages')
+@endif
 
 @if(count($errors))
-    <div class="container">
-        <div class="alert alert-dismissible alert-danger">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    </div>
+    @include('helpers.dashboard.mutual.errors')
 @endif
 
 <div class="container">

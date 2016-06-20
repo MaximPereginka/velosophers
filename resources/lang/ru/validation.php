@@ -28,7 +28,7 @@ return [
         'array'   => 'The :attribute must have between :min and :max items.',
     ],
     'boolean'              => 'The :attribute field must be true or false.',
-    'confirmed'            => 'The :attribute confirmation does not match.',
+    'confirmed'            => 'Поле :attribute не подтверждено.',
     'date'                 => 'The :attribute is not a valid date.',
     'date_format'          => 'The :attribute does not match the format :format.',
     'different'            => 'The :attribute and :other must be different.',
@@ -79,7 +79,7 @@ return [
     'string'               => 'Поле :attribute должно быть строкой.',
     'timezone'             => ':attribute должен быть существующей временной зоной.',
     'unique'               => 'Поле :attribute уже занято.',
-    'url'                  => 'Неверная ссылка :attribute недопустима.',
+    'url'                  => 'Поле :attribute должно быть ссылкой.',
 
     /*
     |--------------------------------------------------------------------------
@@ -122,6 +122,7 @@ return [
         'old_pass' => '«Старый пароль»',
         'new_pass' => '«Новый пароль»',
         'new_again' => '«Подтвердите новый пароль»',
+        'imgUrl' => '«URL Изображения»',
     ],
 
 ];

@@ -45,6 +45,10 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
+        'dashboard' => \App\Http\Middleware\Dashboard::class,
+        'author' => \App\Http\Middleware\Author::class,
+        'moderator' => \App\Http\Middleware\Author::class,
+        'administrator' => \App\Http\Middleware\Administrator::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,

@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -38,5 +40,35 @@ class User extends Authenticatable
     public function type()
     {
         return $this->belongsTo('App\Models\User_Type', 'user_type', 'id');
+    }
+
+    /*
+     * Changes password of the current user
+     */
+    public function update_password($current, $new)
+    {
+        if(Hash::check($current, $this->password)){
+            $this->password = Hash::make($new);
+            if($this->update()){
+                Session::flash('flash_message_text', 'Пароль успешно изменён');
+                Session::flash('flash_message_class', 'success');
+            }
+            else {
+                Session::flash('flash_message_text', 'Ошибка изменения пароля');
+                Session::flash('flash_message_class', 'danger');
+            }
+        }
+        else {
+            Session::flash('flash_message_text', 'Новый и старый пароли не совпадают');
+            Session::flash('flash_message_class', 'danger');
+        }
+    }
+    
+    /*
+     * Deletes an account
+     */
+    public function delete_user()
+    {
+        return $this->delete();
     }
 }
