@@ -10,6 +10,7 @@ use App\Models\Articles;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
+use App\Models\Article_Reject_Messages;
 
 class AuthorController extends Controller
 {
@@ -136,6 +137,9 @@ class AuthorController extends Controller
 
         $article->status_id = 3;
 
+        $msg = new Article_Reject_Messages;
+        if(!is_null($msg->all()->where('article_id', $article->id)->first())) $msg->all()->where('article_id', $article->id)->first()->delete();
+        
         if($article->update()) {
             Session::flash('flash_message_text', 'Статья была успешно отправлена на модерацию');
             Session::flash('flash_message_class', 'success');

@@ -41,6 +41,8 @@
                 <!-- Author navbar -->
                 @if(Auth::user()->user_type == 2)
                     @include('helpers.dashboard.author.navbar')
+                @elseif(Auth::user()->user_type == 3)
+                    @include('helpers.dashboard.moderator.navbar')
                 @endif
             </ul>
 

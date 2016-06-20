@@ -24,3 +24,14 @@ $(window).resize(function() {
 $(window).load(function() {
     fix_video($(window).width());
 });
+
+/* Showing modal window */
+function show_modal(id){
+    document.getElementById(id).style.display = 'block';
+
+}
+
+/* Hiding modal window */
+function hide_modal(id) {
+    document.getElementById(id).style.display = 'none';
+}

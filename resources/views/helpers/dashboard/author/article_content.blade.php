@@ -8,7 +8,7 @@
 
     <div class="form-group">
         <label class="control-label" for="preview">Текст превью</label>
-        <textarea rows="4" class="form-control" id="preview" name="preview" placeholder="Введите текст превью">{{ isset($data['article']) ? ((old('preview')) ? old('preview') : $data['article']->preview) : old('preview') }}</textarea>
+        <textarea rows="3" class="form-control" id="preview" name="preview" placeholder="Введите текст превью">{{ isset($data['article']) ? ((old('preview')) ? old('preview') : $data['article']->preview) : old('preview') }}</textarea>
     </div>
 
     <div class="form-group">

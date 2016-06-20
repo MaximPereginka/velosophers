@@ -21,7 +21,7 @@ class DashboardController extends Controller
             return view('dashboard.author.home');
         }
         else if (Auth::user()->user_type == 3) {
-            return "moderator";
+            return view('dashboard.moderator.home');
         }
         else if (Auth::user()->user_type == 4) {
             return "админк";

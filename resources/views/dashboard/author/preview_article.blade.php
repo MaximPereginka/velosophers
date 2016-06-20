@@ -1,6 +1,14 @@
 @extends('layouts.dashboard')
 
 @section('content')
+    @if(!is_null($data['article']->reject_message))
+        <div class="alert alert-dismissible alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <h4>Публикация отклонена</h4>
+            <p><b>Причина:</b> {{ $data['article']->reject_message->text }}</p>
+        </div>
+    @endif
+
     <div class="page-header">
         <h1>{{ $data['article']->title }}</h1>
     </div>
@@ -28,7 +36,7 @@
             </div>
 
             <div class="form-group">
-                <a href="/dashboard/author/articles/{{ $data['article']->id }}/delete" title="Удалить" class="form-control btn btn-danger">Удалить</a>
+                <a onclick="show_modal('delete_article')" href="#" title="Удалить" class="form-control btn btn-danger">Удалить</a>
             </div>
 
             <div class="panel panel-default">
@@ -36,9 +44,10 @@
                 <div class="panel-body">
                     <img class="thumbnail" style="width: 100%" alt="Изображение статьи" src="{{ ($data['article']->img) ? $data['article']->img : "/img/dashboard/no-image.png" }}" />
 
-                    <p><b>Дата создания: </b>{{ $data['article']->created_at->format('d.m.o.') }}</p>
                     @if($data['article']->status_id == 2)
-                        <p><b>Дата публикации: </b>{{ $data['article']->published_at->format('d.m.o.') }}</p>
+                        <p><b>Дата публикации: </b>{{ $data['article']->created_at->format('d.m.o.') }}</p>
+                    @else
+                        <p><b>Дата создания: </b>{{ $data['article']->created_at->format('d.m.o.') }}</p>
                     @endif
                     <p><b>Статус: </b>{{ $data['article']->status->name }}</p>
                     @if(!$data['article']->categories->isEmpty())
@@ -51,4 +60,7 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal window -->
+    @include('helpers.dashboard.author.delete_article')
 @stop

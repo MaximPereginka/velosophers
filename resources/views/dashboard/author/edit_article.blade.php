@@ -24,7 +24,7 @@
             </div>
 
             <div class="form-group">
-                <a href="/dashboard/author/articles/{{ $data['article']->id }}/delete" title="Удалить" class="form-control btn btn-danger">Удалить</a>
+                <a onclick="show_modal('delete_article')" href="#" title="Удалить" class="form-control btn btn-danger">Удалить</a>
             </div>
 
             <div class="panel panel-default">
@@ -43,6 +43,9 @@
 
         </div>
     </form>
+
+    <!-- Modal window -->
+    @include('helpers.dashboard.author.delete_article')
 
     @include('helpers.dashboard.mutual.tinymce')
 @stop

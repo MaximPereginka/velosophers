@@ -18,7 +18,7 @@ Route::group(['middleware' => 'dashboard'], function(){
      * Author dashboard pages
      */
     Route::group(['middleware' => 'author'], function () {
-            Route::get('/dashboard/author/articles/new', 'AuthorController@create_article');
+        Route::get('/dashboard/author/articles/new', 'AuthorController@create_article');
         Route::post('/dashboard/author/articles/store', 'AuthorController@save_new_article');
         Route::get('/dashboard/author/articles/{article}/edit', 'AuthorController@edit_article');
         Route::patch('/dashboard/author/articles/{article}/update', 'AuthorController@update_article');
@@ -32,8 +32,19 @@ Route::group(['middleware' => 'dashboard'], function(){
     });
 
     /*
+     * Moderator dashboard pages
+     */
+    Route::group(['middleware' => 'moderator'], function () {
+        Route::get('/dashboard/moderator/moderation_list', 'ModeratorController@moderation_list');
+        Route::get('/dashboard/moderator/article/{article}/moderation', 'ModeratorController@moderation');
+        Route::get('/dashboard/moderator/article/{article}/publish', 'ModeratorController@publish');
+        Route::patch('/dashboard/moderator/article/{article}/reject', 'ModeratorController@reject');
+    });
+
+    /*
      * Mutual dashboard pages
      */
+    Route::get('/', 'DashboardController@index');
     Route::get('/dashboard', 'DashboardController@index');
     Route::get('/dashboard/private_office', 'DashboardController@private_office');
     Route::patch('/dashboard/user/update', 'DashboardController@user_update');

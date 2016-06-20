@@ -63,9 +63,17 @@ class User extends Authenticatable
             Session::flash('flash_message_class', 'danger');
         }
     }
-    
+
     /*
-     * Deletes an account
+     * Relation with categories for moderators
+     */
+    public function moderated_categories()
+    {
+        return $this->belongsToMany('App\Models\Categories', 'moderator_category', 'moderator_id', 'category_id');
+    }
+
+    /*
+     * Deletes an account   
      */
     public function delete_user()
     {

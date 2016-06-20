@@ -20,7 +20,6 @@ class CreateArticlesTable extends Migration
             $table->longText('img');
             $table->longText('content');
             $table->integer('status_id')->unsigned()->index();
-            $table->timestamp('published_at');
             $table->timestamps();
         });
     }
