@@ -49,5 +49,4 @@ Route::group(['middleware' => 'dashboard'], function(){
     Route::get('/dashboard/private_office', 'DashboardController@private_office');
     Route::patch('/dashboard/user/update', 'DashboardController@user_update');
     Route::patch('/dashboard/user/update_password', 'DashboardController@user_update_password');
-    Route::get('/dashboard/user/delete', 'DashboardController@user_delete');
 });

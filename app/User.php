@@ -71,12 +71,4 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Models\Categories', 'moderator_category', 'moderator_id', 'category_id');
     }
-
-    /*
-     * Deletes an account   
-     */
-    public function delete_user()
-    {
-        return $this->delete();
-    }
 }

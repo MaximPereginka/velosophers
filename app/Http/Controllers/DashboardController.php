@@ -77,21 +77,4 @@ class DashboardController extends Controller
         Auth::user()->update_password($request['current'], $request['password']);
         return back();
     }
-
-    /*
-     * Deleting current user
-     */
-    public function user_delete()
-    {
-        if(Auth::user()->delete_user()) {
-            Session::flash('flash_message_text', 'Аккаунт успешно удалён');
-            Session::flash('flash_message_class', 'success');
-            return redirect('/dashboard');
-        }
-        else {
-            Session::flash('flash_message_text', 'Ошибка удаления аккаунта');
-            Session::flash('flash_message_class', 'danger');
-            return back();
-        }
-    }
 }
