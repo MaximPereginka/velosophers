@@ -31,7 +31,7 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/dashboard') }}">
+            <a class="navbar-brand" href="{{ url('/') }}">
                 Velosophers
             </a>
         </div>
@@ -45,6 +45,8 @@
                         <!-- Moderator navbar -->
                     @elseif(Auth::user()->user_type == 3)
                         @include('helpers.dashboard.moderator.navbar')
+                    @elseif(Auth::user()->user_type == 4)
+                        @include('helpers.dashboard.administrator.navbar')
                     @endif
                 @endif
             </ul>

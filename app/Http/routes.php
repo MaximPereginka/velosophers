@@ -13,6 +13,12 @@
 
 Route::auth();
 
+/*
+ * For all visitors
+ */
+Route::get('/', 'BlogController@index');
+Route::get('/article/{article}', 'BlogController@view');
+
 Route::group(['middleware' => 'dashboard'], function(){
     /*
      * Author dashboard pages
@@ -62,6 +68,7 @@ Route::group(['middleware' => 'dashboard'], function(){
         Route::get('/dashboard/administrator/moderation_list', 'AdministratorController@moderation_list');
         Route::get('/dashboard/administrator/article/{article}/moderation', 'AdministratorController@moderation');
         Route::get('/dashboard/administrator/article/{article}/publish', 'AdministratorController@publish');
+        
         Route::patch('/dashboard/administrator/article/{article}/reject', 'AdministratorController@reject');
         Route::get('/dashboard/author/users', 'AdministratorController@users_list');
         Route::get('/dashboard/author/users/create', 'AdministratorController@create_user');
@@ -75,7 +82,6 @@ Route::group(['middleware' => 'dashboard'], function(){
     /*
      * Mutual dashboard pages
      */
-    Route::get('/', 'DashboardController@index');
     Route::get('/dashboard', 'DashboardController@index');
     Route::get('/dashboard/private_office', 'DashboardController@private_office');
     Route::patch('/dashboard/user/update', 'DashboardController@user_update');

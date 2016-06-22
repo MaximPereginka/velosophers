@@ -33,6 +33,9 @@
                 <div class="form-group">
                     <button type="submit" class="form-control btn btn-success">Обновить информацию</button>
                 </div>
+                <div class="form-group">
+                    <a href="#" onclick="show_modal('delete_user')" title="Удалить пользователя" class="form-control btn btn-danger">Удалить пользователя</a>
+                </div>
             </form>
         </div>
         <hr/>
@@ -73,6 +76,24 @@
                     @endforeach
                 @endif
             @endif
+        </div>
+    </div>
+
+    <div id="delete_user" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button onclick="hide_modal('delete_user')" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Удаление пользователя</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Вы действительно хотите удалить даного пользователя?</p>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="hide_modal('delete_user')" type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                    <a href="/dashboard/author/users/{{ $data['user']->id }}/delete" title="Удалить пользователя" class="btn btn-danger">Удалить</a>
+                </div>
+            </div>
         </div>
     </div>
 @stop

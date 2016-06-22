@@ -115,4 +115,23 @@ class User extends Authenticatable
         }
         return back();
     }
+
+    /*
+     * Deletes user and all his relations
+     */
+    public function delete_user()
+    {
+        if($this->moderated_categories()) $this->moderated_categories()->detach();
+
+        if($this->delete()){
+            Session::flash('flash_message_text', 'Пользователь успешно удалён');
+            Session::flash('flash_message_class', 'success');
+            return redirect('/dashboard/author/users');
+        }
+        else {
+            Session::flash('flash_message_text', 'Ошибка удаления пользователя');
+            Session::flash('flash_message_class', 'danger');
+            return back();
+        }
+    }
 }

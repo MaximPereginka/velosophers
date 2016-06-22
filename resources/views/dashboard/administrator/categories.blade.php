@@ -43,7 +43,9 @@
             @foreach($data['categories'] as $category)
                 <tr>
                     <td>{{ $category['id'] }}</td>
-                    <td style="padding-left: {{ $category['nesting']*2 }}8px">@if($category['nesting'])&rarr; @endif{{ $category['name'] }}</td>
+                    <td style="padding-left: {{ $category['nesting']*2 }}8px">@if($category['nesting'])&rarr; @endif
+                        <a href="/dashboard/administrator/articles/category/{{ $category['id'] }}" title="Категория {{ $category['name'] }}">{{ $category['name'] }}</a>
+                    </td>
                     <td class="text-right">
                         <a href="/dashboard/administrator/articles/categories/{{ $category['id'] }}/delete" title="Удалить категорию {{ $category['name'] }}" class="btn btn-danger">Удалить</a>
                     </td>

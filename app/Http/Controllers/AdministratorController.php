@@ -168,7 +168,7 @@ class AdministratorController extends Controller
             'category' => $category->name,
         ];
 
-        return view('dashboard.author.category_list', compact('data'));
+        return view('dashboard.administrator.category_articles', compact('data'));
     }
 
     /*
@@ -369,8 +369,8 @@ class AdministratorController extends Controller
     /*
      * Deleting user
      */
-    public function delete_user()
+    public function delete_user(User $user)
     {
-        
+        return $user->delete_user();
     }
 }
