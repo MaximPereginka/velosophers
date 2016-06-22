@@ -204,6 +204,7 @@ class AuthorController extends Controller
         if($article->delete_article()) {
             Session::flash('flash_message_text', 'Статья была успешно удалена');
             Session::flash('flash_message_class', 'success');
+            if(Auth::user()->user_type == 4) return redirect('/dashboard/administrator/articles/own');
             return redirect('/dashboard/author/articles/own');
         }
         else {

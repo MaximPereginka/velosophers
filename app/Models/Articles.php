@@ -37,14 +37,14 @@ class Articles extends Model
      * Creates new article
      * Returns true or false
      */
-    public function create_article($request)
+    public function create_article($request, $status_id = 1)
     {
         $this->user_id = Auth::user()->id;
         $this->title = $request['title'];
         $this->preview = $request['preview'];
         $this->img = $request['imgUrl'];
         $this->content = $request['articleContent'];
-        $this->status_id = 1;
+        $this->status_id = $status_id;
 
         if($this->save()){
             if(!is_null($request['category_'])) {
@@ -65,18 +65,19 @@ class Articles extends Model
     /*
      * Updates existing article
      */
-    public function update_article($request)
+    public function update_article($request, $status_id = 1)
     {
-        $this->user_id = Auth::user()->id;
         $this->title = $request['title'];
         $this->preview = $request['preview'];
         $this->img = $request['imgUrl'];
         $this->content = $request['articleContent'];
-        $this->status_id = 1;
+        $this->status_id = $status_id;
 
         if($this->update()){
             if(!is_null($request['category_'])) {
                 if($this->categories()->sync($request['category_'])) {
+                    $msg = new Article_Reject_Messages;
+                    if(!is_null($msg->all()->where('article_id', $this->id)->first())) $msg->all()->where('article_id', $this->id)->first()->delete();
                     return true;
                 }
                 else {
@@ -120,29 +121,36 @@ class Articles extends Model
     /*
      * Return list of all articles that need moderation for current moderator
      */
-    public function need_moderation_list()
+    public function need_moderation_list($administrator = false)
     {
         $articles = [];
 
-        foreach (Auth::user()->moderated_categories as $category){
-            foreach ($category->articles->where('status_id', 3) as $article){
-                $save = true;
+        if($administrator){
+            $articles = $this->where('status_id', 3)->get();
+            if($articles->isEmpty()) $articles = [];
+        }
+        else {
+            foreach (Auth::user()->moderated_categories as $category){
+                foreach ($category->articles->where('status_id', 3) as $article){
+                    $save = true;
 
-                foreach ($articles as $existing){
-                    if($existing['id'] == $article->id) $save = false;
+                    foreach ($articles as $existing){
+                        if($existing['id'] == $article->id) $save = false;
+                    }
+
+                    if($save){
+                        $new_article = [
+                            'id' => $article->id,
+                            'title' => $article->title,
+                            'author' => (is_null($article->user)) ? "Velosophers" : $article->user->name,
+                        ];
+                        array_push($articles, $new_article);
+                    }
+
                 }
-
-                if($save){
-                    $new_article = [
-                        'id' => $article->id,
-                        'title' => $article->title,
-                        'author' => $article->user->name,
-                    ];
-                    array_push($articles, $new_article);
-                }
-
             }
         }
+
         return $articles;
     }
 
@@ -161,11 +169,13 @@ class Articles extends Model
             if($message->save()){
                 Session::flash('flash_message_text', 'Статья была успешно отклонена');
                 Session::flash('flash_message_class', 'success');
+                if(Auth::user()->user_type == 4) return redirect('/dashboard/administrator/moderation_list');
                 return redirect('/dashboard/moderator/moderation_list');
             }
             else {
                 Session::flash('flash_message_text', 'Ошибка создания сообщения');
                 Session::flash('flash_message_class', 'danger');
+                if(Auth::user()->user_type == 4) return redirect('/dashboard/administrator/moderation_list');
                 return redirect('/dashboard/moderator/moderation_list');
             }
 

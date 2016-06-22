@@ -69,7 +69,7 @@
                             </li>
                             @if(in_array(Auth::user()->user_type, [2,4]))
                                 <li>
-                                    <a href="/dashboard/author/articles/own">
+                                    <a href="{{ (Auth::user()->user_type == 2) ? "/dashboard/author/articles/own" : "/dashboard/administrator/articles/own" }}">
                                         <i class="fa fa-btn fa-file-image-o"></i>Мои публикации
                                     </a>
                                 </li>

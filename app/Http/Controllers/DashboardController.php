@@ -24,7 +24,7 @@ class DashboardController extends Controller
             return view('dashboard.moderator.home');
         }
         else if (Auth::user()->user_type == 4) {
-            return "админк";
+            return view('dashboard.administrator.home');
         }
         else {
             return "Ты блять кто вообще?";
@@ -36,6 +36,8 @@ class DashboardController extends Controller
      */
     public function private_office()
     {
+        if(Auth::user()->user_type == 4) return redirect('/dashboard/author/users/'. Auth::user()->id);
+        
         return view('dashboard.mutual.private_office');
     }
     

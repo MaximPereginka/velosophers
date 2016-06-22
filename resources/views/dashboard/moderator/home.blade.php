@@ -11,6 +11,10 @@
                 </div>
             </div>
         </div>
-        @include('helpers.dashboard.mutual.home.private_office')
+        <div class="col-md-3">
+            <div class="row">
+                @include('helpers.dashboard.mutual.home.private_office')
+            </div>
+        </div>
     </div>
 @stop

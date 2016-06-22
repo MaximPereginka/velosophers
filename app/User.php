@@ -71,4 +71,48 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Models\Categories', 'moderator_category', 'moderator_id', 'category_id');
     }
+
+    /*
+     * Receive request data
+     * Creates new user
+     */
+    public function create_user($request)
+    {
+        $this->name = $request->username;
+        $this->email = $request->email;
+        $this->user_type = $request->type;
+        $this->password = Hash::make($request->password);
+
+        if($this->save()){
+            Session::flash('flash_message_text', 'Пользователь успешно создан');
+            Session::flash('flash_message_class', 'success');
+            return redirect('/dashboard/author/users/' . $this->id);
+        }
+        else {
+            Session::flash('flash_message_text', 'Ошибка создания пользователя');
+            Session::flash('flash_message_class', 'danger');
+            return back();
+        }
+    }
+
+    /*
+     * Receive request data
+     * Creates new user
+     */ 
+    public function update_user($request)
+    {
+        $this->name = $request->username;
+        $this->email = $request->email;
+        $this->user_type = $request->type;
+
+        if($this->update()){
+            Session::flash('flash_message_text', 'Информация о пользователе успешно обновлена');
+            Session::flash('flash_message_class', 'success');
+        }
+        else {
+            Session::flash('flash_message_text', 'Ошибка обновления информации о пользователе');
+            Session::flash('flash_message_class', 'danger');
+        }
+        return back();
+    }
 }

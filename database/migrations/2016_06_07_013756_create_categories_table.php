@@ -16,7 +16,6 @@ class CreateCategoriesTable extends Migration
             $table->increments('id');
             $table->string('name')->unique();
             $table->integer('parent_id')->unsigned();
-            $table->boolean('has_parent');
             $table->timestamps();
         });
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class Moderator
 {
@@ -15,6 +16,10 @@ class Moderator
      */
     public function handle($request, Closure $next)
     {
+        if(Auth::user()->user_type !== 3){
+            return response('Not enough permissions.', 401);
+        }
+        
         return $next($request);
     }
 }
