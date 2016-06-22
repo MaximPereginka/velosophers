@@ -323,11 +323,14 @@ class AdministratorController extends Controller
     public function edit_user(User $user)
     {
         $user_type = new User_Type;
+        $categories = new Categories();
         
         $data = [
             'user' => $user,
             'user_type' => $user_type->all(),
+            'categories' => $categories->all(),
         ];
+
         return view('dashboard.administrator.edit_user', compact('data'));
     }
 
@@ -341,6 +344,7 @@ class AdministratorController extends Controller
             'email' => 'required|max:255|unique:users,email,'.$request->user_id,
             'type' => 'integer|exists:user_type,id',
             'user_id' => 'integer|exists:users,id',
+            'moderator_category_.*' => 'integer|exists:categories,id',
         ]);
         $user = new User;
         return $user->find($request->user_id)->update_user($request);

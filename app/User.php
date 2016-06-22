@@ -104,6 +104,7 @@ class User extends Authenticatable
         $this->name = $request->username;
         $this->email = $request->email;
         $this->user_type = $request->type;
+        if(($this->user_type == 3) && ($request->moderator_category_)) $this->moderated_categories()->sync($request->moderator_category_);
 
         if($this->update()){
             Session::flash('flash_message_text', 'Информация о пользователе успешно обновлена');

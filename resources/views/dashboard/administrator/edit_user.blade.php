@@ -29,6 +29,32 @@
                         @endforeach
                     </select>
                 </div>
+                @if($data['user']->user_type == 3)
+                    <div class="form-group">
+                        <label class="control-label">Категории модератора</label>
+                        @foreach($data['categories'] as $category)
+                            <div class="checkbox">
+                                <label>
+                                    <input name="moderator_category_[]" value="{{ $category->id }}" type="checkbox"
+                                    @if(old('moderator_category_'))
+                                        @foreach(old('moderator_category_') as $old)
+                                            @if($old == $category->id)
+                                                checked
+                                            @endif
+                                        @endforeach
+                                    @else
+                                        @foreach($data['user']->moderated_categories as $cat)
+                                            @if($cat->id == $category->id)
+                                                checked
+                                           @endif
+                                        @endforeach
+                                    @endif
+                                    > {{ $category->name }}
+                                </label>
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
                 <input type="hidden" value="{{ $data['user']->id }}" name="user_id">
                 <div class="form-group">
                     <button type="submit" class="form-control btn btn-success">Обновить информацию</button>
