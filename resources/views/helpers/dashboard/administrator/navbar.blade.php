@@ -30,5 +30,17 @@
         </li>
     </ul>
 </li>
-<li><a href="/dashboard/author/users">Пользователи</a>
+<li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Пользователи<span class="caret"></span></a>
+    <ul class="dropdown-menu" role="menu">
+        <li><a href="/dashboard/author/users/create">
+                <i class="fa fa-btn fa-plus"></i>Создать пользователя
+            </a>
+        </li>
+        <li><a href="/dashboard/author/users">
+                <i class="fa fa-btn fa-users"></i>Все пользователи
+            </a>
+        </li>
+    </ul>
+</li>
 </li>
