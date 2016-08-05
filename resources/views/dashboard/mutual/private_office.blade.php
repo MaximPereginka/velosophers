@@ -64,7 +64,7 @@
 
     <div class="col-md-6 col-md-offset-2">
         <div class="row">
-            @if(in_array(Auth::user()->user_type, [2,4]))
+            @if(in_array(Auth::user()->user_type, [2,4,5]))
                 <h2>Последние публикации</h2>
                 @if(Auth::user()->articles->isEmpty())
                     <p>Не создано ни одной статьи</p>

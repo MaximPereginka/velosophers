@@ -26,7 +26,7 @@ class CreateUserTypeTable extends Migration
         DB::insert("
             INSERT INTO `user_type`
             (`name`, `role`)
-            VALUES ('Подписчик', 'subscriber'), ('Автор', 'author'), ('Модератор', 'moderator'), ('Администратор', 'admin')
+            VALUES ('Подписчик', 'subscriber'), ('Автор', 'author'), ('Модератор', 'moderator'), ('Администратор', 'admin'), ('Автор-модератор', 'author-moderator')
         ");
     }
 

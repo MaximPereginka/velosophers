@@ -7,7 +7,7 @@
         @endif
         <div class="form-group">
             <label class="control-label" for="imgUrl">URL Изображения</label>
-            <input type="text" id="imgUrl" name="imgUrl" class="form-control" value="{{ (isset($data['article'])) ? ((old('imgUrl')) ? old('imgUrl') : $data['article']->img) : "" }}" placeholder="Введите URL изображения">
+            <input type="text" id="imgUrl" name="imgUrl" class="form-control" value="{{ (isset($data['article'])) ? ((old('imgUrl')) ? old('imgUrl') : $data['article']->img) : old('imgUrl') }}" placeholder="Введите URL изображения">
         </div>
     </div>
 </div>

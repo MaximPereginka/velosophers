@@ -24,7 +24,7 @@ class Dashboard
             }
         }
 
-        if(!in_array(Auth::user()->user_type, [2,3,4])){
+        if(!in_array(Auth::user()->user_type, [2,3,4,5])){
             return response('Not enough permissions.', 401);
         }
 

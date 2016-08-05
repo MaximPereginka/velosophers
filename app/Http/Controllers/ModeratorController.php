@@ -80,7 +80,7 @@ class ModeratorController extends Controller
      */
     protected function check_rights($status)
     {
-        if($status != 3) {
+        if(($status != 3) || (Auth::user()->user_type == 5)) {
             Session::flash('flash_message_text', 'Вы не можете модерировать данную статью');
             Session::flash('flash_message_class', 'danger');
             return false;

@@ -48,6 +48,28 @@ Route::group(['middleware' => 'dashboard'], function(){
     });
 
     /*
+     * Author-moderator pages
+     */
+    Route::group(['middleware' => 'author-moderator'], function () {
+        Route::get('/dashboard/author/articles/new', 'AuthorController@create_article');
+        Route::post('/dashboard/author/articles/store', 'AuthorController@save_new_article');
+        Route::get('/dashboard/author/articles/{article}/edit', 'AuthorController@edit_article');
+        Route::patch('/dashboard/author/articles/{article}/update', 'AuthorController@update_article');
+        Route::get('/dashboard/author/articles/{article}/preview', 'AuthorController@article_preview');
+        Route::get('/dashboard/author/articles/{article}/moderation', 'AuthorController@send_on_moderation');
+        Route::get('/dashboard/author/articles/{article}/cancel_moderation', 'AuthorController@cancel_moderation');
+        Route::get('/dashboard/author/articles/{article}/unpublish', 'AuthorController@unpublish');
+        Route::get('/dashboard/author/articles/{article}/delete', 'AuthorController@delete_article');
+        Route::get('/dashboard/author/articles/category/{category}', 'AuthorController@category_list');
+        Route::get('/dashboard/author/articles/own', 'AuthorController@own_articles_list');
+
+        Route::get('/dashboard/moderator/moderation_list', 'ModeratorController@moderation_list');
+        Route::get('/dashboard/moderator/article/{article}/moderation', 'ModeratorController@moderation');
+        Route::get('/dashboard/moderator/article/{article}/publish', 'ModeratorController@publish');
+        Route::patch('/dashboard/moderator/article/{article}/reject', 'ModeratorController@reject');
+    });
+
+    /*
      * Administrator dashboard pages
      */
     Route::group(['middleware' => 'administrator'], function () {
@@ -77,6 +99,8 @@ Route::group(['middleware' => 'dashboard'], function(){
         Route::patch('/dashboard/author/users/{user}/update', 'AdministratorController@update_user');
         Route::patch('/dashboard/author/users/{user}/change_password', 'AdministratorController@change_password');
         Route::get('/dashboard/author/users/{user}/delete', 'AdministratorController@delete_user');
+
+        
     });
 
     /*
