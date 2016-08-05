@@ -20,7 +20,7 @@
         </thead>
         <tbody>
         @foreach($data['users'] as $user)
-            <tr>
+            <tr class="{{ ($user->id == Auth::user()->id) ? "info" : "" }}">
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
