@@ -135,7 +135,7 @@ class Articles extends Model
                     $save = true;
 
                     foreach ($articles as $existing){
-                        if($existing['id'] == $article->id) $save = false;
+                        if(($existing['id'] == $article->id) || ($existing['user_id'] == Auth::user()->id)) $save = false;
                     }
 
                     if($save){

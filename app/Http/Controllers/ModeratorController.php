@@ -31,7 +31,7 @@ class ModeratorController extends Controller
      */
     public function moderation(Articles $article)
     {
-        if(!$this->check_rights($article->status_id)) return redirect('/dashboard/moderator/moderation_list');
+        if(!$this->check_rights($article->status_id, $article->user_id)) return redirect('/dashboard/moderator/moderation_list');
 
         $data = [
             'article' => $article,
@@ -45,7 +45,7 @@ class ModeratorController extends Controller
      */
     public function publish(Articles $article)
     {
-        if(!$this->check_rights($article->status_id)) return redirect('/dashboard/moderator/moderation_list');
+        if(!$this->check_rights($article->status_id, $article->user_id)) return redirect('/dashboard/moderator/moderation_list');
 
         $article->status_id = 2;
 
@@ -66,7 +66,7 @@ class ModeratorController extends Controller
      */
     public function reject(Articles $article, Request $request)
     {
-        if(!$this->check_rights($article->status_id)) return redirect('/dashboard/moderator/moderation_list');
+        if(!$this->check_rights($article->status_id, $article->user_id)) return redirect('/dashboard/moderator/moderation_list');
 
         $this->validate($request, [
             'reason' => 'required|max:255'
@@ -78,9 +78,9 @@ class ModeratorController extends Controller
     /*
      * Check right to moderate article
      */
-    protected function check_rights($status)
+    protected function check_rights($status, $author_id)
     {
-        if(($status != 3) || (Auth::user()->user_type == 5)) {
+        if(($status != 3) || ((Auth::user()->user_type == 5) && (Auth::user()->id == $author_id))) {
             Session::flash('flash_message_text', 'Вы не можете модерировать данную статью');
             Session::flash('flash_message_class', 'danger');
             return false;
