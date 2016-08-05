@@ -222,7 +222,7 @@ class AuthorController extends Controller
         $categories = new Categories;
 
         $data = [
-            'articles' => $category->articles->where('user_id', Auth::user()->id),
+            'articles' => $category->articles()->where('user_id', Auth::user()->id)->paginate(10),
             'categories' => $categories->all(),
             'category' => $category->name,
         ];
@@ -239,7 +239,7 @@ class AuthorController extends Controller
         $categories = new Categories;
 
         $data = [
-            'articles' => $articles->all()->where('user_id', Auth::user()->id),
+            'articles' => $articles->where('user_id', Auth::user()->id)->paginate(10),
             'categories' => $categories->all(),
         ];
 

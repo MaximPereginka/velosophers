@@ -16,7 +16,7 @@ class Author
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if(Auth::user()->user_type !== 2){
+        if(!in_array(Auth::user()->user_type, [2,5])){
             return response('Not enough permissions.', 401);
         }
 

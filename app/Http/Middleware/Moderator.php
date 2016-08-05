@@ -16,7 +16,7 @@ class Moderator
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::user()->user_type !== 3){
+        if(!in_array(Auth::user()->user_type, [3,5])){
             return response('Not enough permissions.', 401);
         }
         

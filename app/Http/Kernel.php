@@ -49,7 +49,6 @@ class Kernel extends HttpKernel
         'author' => \App\Http\Middleware\Author::class,
         'moderator' => \App\Http\Middleware\Moderator::class,
         'administrator' => \App\Http\Middleware\Administrator::class,
-        'author-moderator' => \App\Http\Middleware\AuthorModerator::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,

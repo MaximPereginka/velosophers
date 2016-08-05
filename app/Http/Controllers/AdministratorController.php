@@ -132,7 +132,7 @@ class AdministratorController extends Controller
         $categories = new Categories;
 
         $data = [
-            'articles' => $articles->all()->where('user_id', Auth::user()->id),
+            'articles' => $articles->where('user_id', Auth::user()->id)->paginate(10),
             'categories' => $categories->all(),
         ];
 
@@ -148,7 +148,7 @@ class AdministratorController extends Controller
         $categories = new Categories;
 
         $data = [
-            'articles' => $articles->all(),
+            'articles' => $articles->paginate(10),
             'categories' => $categories->all(),
         ];
 
@@ -163,7 +163,7 @@ class AdministratorController extends Controller
         $categories = new Categories;
 
         $data = [
-            'articles' => $category->articles,
+            'articles' => $category->articles()->paginate(10),
             'categories' => $categories->all(),
             'category' => $category->name,
         ];
@@ -283,7 +283,7 @@ class AdministratorController extends Controller
         $users = new User;
 
         $data = [
-            'users' => $users->all(),
+            'users' => $users->paginate(10),
         ];
         return view('dashboard.administrator.users_list', compact('data'));
     }

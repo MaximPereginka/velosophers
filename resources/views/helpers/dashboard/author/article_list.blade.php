@@ -26,5 +26,8 @@
                 </div>
             </a>
         @endforeach
+        <div class="text-center">
+            {!! $data['articles']->render() !!}
+        </div>
     @endif
 </div>

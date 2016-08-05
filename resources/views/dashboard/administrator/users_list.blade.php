@@ -32,4 +32,7 @@
         @endforeach
         </tbody>
     </table>
+    <div class="text-center">
+        {!! $data['users']->render() !!}
+    </div>
 @stop
