@@ -47,12 +47,16 @@
                         @include('helpers.dashboard.moderator.navbar')
                     @elseif(Auth::user()->user_type == 4)
                         @include('helpers.dashboard.administrator.navbar')
+                    @elseif(Auth::user()->user_type == 5)
+                        @include('helpers.dashboard.author-moderator.navbar')
                     @endif
                 @endif
             </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
+                <li><a href="/">Вернуться на сайт</a></li>
+
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                     <li><a href="{{ url('/login') }}">Вход</a></li>
