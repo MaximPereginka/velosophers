@@ -22,8 +22,8 @@
                     @foreach($data['articles'] as $article)
                         <tr>
                             <td>{{ $article['id'] }}</td>
-                            <td>{{ $article['title'] }}</td>
-                            <td>{{ $article['author'] }}</td>
+                            <td><a href="/dashboard/administrator/article/{{ $article['id'] }}/moderation" title="Модерация">{{ $article['title'] }}</a></td>
+                            <td><a href="/dashboard/author/users/{{ $article->user->id }}" title="Страница пользователя">{{ $article->user->name }}</a></td>
                             <td class="text-right">
                                 <a href="/dashboard/administrator/article/{{ $article['id'] }}/moderation" class="btn btn-primary" title="Модерация">Модерация</a>
                             </td>
