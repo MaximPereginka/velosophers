@@ -9,6 +9,11 @@
             <div class="content">
                 {!! $data['article']->content !!}
             </div>
+
+            <hr/>
+
+            <!-- Article comments -->
+            @include('helpers.dashboard.moderator.comments')
         </div>
         <div class="col-md-3">
             <div class="form-group">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categories;
 use Illuminate\Http\Request;
+use App\Models\Comments;
 
 use App\Http\Requests;
 use App\Models\Articles;
@@ -244,5 +245,21 @@ class AuthorController extends Controller
         ];
 
         return view('dashboard.author.own_articles', compact('data'));
+    }
+
+    /*
+     * Deletes comment from article
+     */
+    public function delete_comment(Comments $comment)
+    {
+        if($comment->delete()) {
+            Session::flash('flash_message_text', 'Комментарий успешно удалён');
+            Session::flash('flash_message_class', 'success');
+        }
+        else {
+            Session::flash('flash_message_text', 'Ошибка удаления комментария');
+            Session::flash('flash_message_class', 'danger');
+        }
+        return back();
     }
 }

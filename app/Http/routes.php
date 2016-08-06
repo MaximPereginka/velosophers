@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -10,15 +9,12 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
 Route::auth();
-
 /*
  * For all visitors
  */
 Route::get('/', 'BlogController@index');
 Route::get('/article/{article}', 'BlogController@view');
-
 Route::group(['middleware' => 'dashboard'], function(){
     /*
      * Author dashboard pages
@@ -35,8 +31,8 @@ Route::group(['middleware' => 'dashboard'], function(){
         Route::get('/dashboard/author/articles/{article}/delete', 'AuthorController@delete_article');
         Route::get('/dashboard/author/articles/category/{category}', 'AuthorController@category_list');
         Route::get('/dashboard/author/articles/own', 'AuthorController@own_articles_list');
+        Route::get('/dashboard/author/articles/comments/{comment}/delete', 'AuthorController@delete_comment');
     });
-
     /*
      * Moderator dashboard pages
      */
@@ -45,6 +41,7 @@ Route::group(['middleware' => 'dashboard'], function(){
         Route::get('/dashboard/moderator/article/{article}/moderation', 'ModeratorController@moderation');
         Route::get('/dashboard/moderator/article/{article}/publish', 'ModeratorController@publish');
         Route::patch('/dashboard/moderator/article/{article}/reject', 'ModeratorController@reject');
+        Route::get('/dashboard/moderator/articles/comments/{comment}/delete', 'ModeratorController@delete_comment');
     });
 
     /*
@@ -59,16 +56,15 @@ Route::group(['middleware' => 'dashboard'], function(){
         Route::get('/dashboard/author/articles/{article}/delete', 'AuthorController@delete_article');
         Route::get('/dashboard/administrator/articles/own', 'AdministratorController@own_articles_list');
         Route::get('/dashboard/administrator/articles', 'AdministratorController@all_articles_list');
+        Route::get('/dashboard/administrator/articles/comments/{comment}/delete', 'AdministratorController@delete_comment');
         Route::get('/dashboard/administrator/articles/category/{category}', 'AdministratorController@category_list');
-
         Route::get('/dashboard/administrator/articles/categories', 'AdministratorController@categories');
         Route::post('/dashboard/administrator/articles/categories/create', 'AdministratorController@create_category');
         Route::get('/dashboard/administrator/articles/categories/{category}/delete', 'AdministratorController@delete_category');
-
         Route::get('/dashboard/administrator/moderation_list', 'AdministratorController@moderation_list');
         Route::get('/dashboard/administrator/article/{article}/moderation', 'AdministratorController@moderation');
         Route::get('/dashboard/administrator/article/{article}/publish', 'AdministratorController@publish');
-        
+
         Route::patch('/dashboard/administrator/article/{article}/reject', 'AdministratorController@reject');
         Route::get('/dashboard/author/users', 'AdministratorController@users_list');
         Route::get('/dashboard/author/users/create', 'AdministratorController@create_user');
@@ -78,9 +74,7 @@ Route::group(['middleware' => 'dashboard'], function(){
         Route::patch('/dashboard/author/users/{user}/change_password', 'AdministratorController@change_password');
         Route::get('/dashboard/author/users/{user}/delete', 'AdministratorController@delete_user');
 
-        
     });
-
     /*
      * Mutual dashboard pages
      */

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Comments;
 use App\Models\User_Type;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -119,7 +120,7 @@ class AdministratorController extends Controller
         $data = [
             'article' => $article,
         ];
-
+        
         return view('dashboard.administrator.article_preview', compact('data'));
     }
 
@@ -155,6 +156,22 @@ class AdministratorController extends Controller
         return view('dashboard.administrator.all_articles', compact('data'));
     }
 
+    /*
+     * Delete comment from article
+     */
+    public function delete_comment(Comments $comment)
+    {
+        if($comment->delete()) {
+            Session::flash('flash_message_text', 'Комментарий успешно удалён');
+            Session::flash('flash_message_class', 'success');
+        }
+        else {
+            Session::flash('flash_message_text', 'Ошибка удаления комментария');
+            Session::flash('flash_message_class', 'danger');
+        }
+        return back();
+    }
+    
     /*
      * List of author certain category articles page
      */

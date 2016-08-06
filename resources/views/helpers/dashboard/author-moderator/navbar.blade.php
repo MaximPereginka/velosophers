@@ -12,7 +12,7 @@
             </a>
         </li>
         <li>
-            <a href="/dashboard/moderator/moderation_list">Модерация статтей</a>
+            <a href="/dashboard/moderator/moderation_list"><i class="fa fa-btn fa-check-circle-o"></i>Модерация статтей</a>
         </li>
     </ul>
 </li>

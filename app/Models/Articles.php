@@ -18,6 +18,13 @@ class Articles extends Model
     }
 
     /*
+     * Relation with comments
+     */
+    public function comments(){
+        return $this->hasMany('App\Models\Comments', 'article_id');
+    }
+    
+    /*
      * Relation with categories
      */
     public function categories()
@@ -101,6 +108,11 @@ class Articles extends Model
             return $this->delete();
         }
         else {
+            /*
+             * Deleting comments
+             */
+            $this->comments()->delete();
+
             if($this->categories()->detach()){
                 $msg = new Article_Reject_Messages;
                 if(!is_null($msg->all()->where('article_id', $this->id)->first())) $msg->all()->where('article_id', $this->id)->first()->delete();

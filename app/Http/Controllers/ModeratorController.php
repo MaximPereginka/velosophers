@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categories;
+use App\Models\Comments;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -86,5 +87,21 @@ class ModeratorController extends Controller
             return false;
         }
         return true;
+    }
+
+    /*
+     * Deletes comment from article
+     */
+    public function delete_comment(Comments $comment)
+    {
+        if($comment->delete()) {
+            Session::flash('flash_message_text', 'Комментарий успешно удалён');
+            Session::flash('flash_message_class', 'success');
+        }
+        else {
+            Session::flash('flash_message_text', 'Ошибка удаления комментария');
+            Session::flash('flash_message_class', 'danger');
+        }
+        return back();
     }
 }
