@@ -11,6 +11,11 @@
             <div class="content">
                 {!! $data['article']->content !!}
             </div>
+
+            <hr/>
+
+            <!-- Article comments -->
+            @include('helpers.dashboard.author.comments')
         </div>
 
         <div class="col-md-3">

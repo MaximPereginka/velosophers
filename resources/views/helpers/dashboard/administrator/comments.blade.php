@@ -14,14 +14,19 @@
                     |
                     <span class="text-danger">{{ $comment->dislikes }} <i class="fa fa-thumbs-o-down" aria-hidden="true"></i></span>
                 </p>
+                @if(!$comment->highlighted)
+                    <p><a href="/dashboard/administrator/articles/comments/{{ $comment->id }}/pin" class="btn btn-xs btn-info">Закрепить</a></p>
+                @else
+                    <p><a href="/dashboard/administrator/articles/comments/{{ $comment->id }}/pin" class="btn btn-xs btn-danger">Открепить</a></p>
+                @endif
                 <p class="col-md-12 list-group-item-text">
                     @if($comment->parent_id !== 0)
                         @foreach($data['article']->comments as $parent)
                             @if($parent->id === $comment->parent_id)
-                                <div class="col-md-12 well well-sm text-muted">
-                                    <p><strong>{{ $parent->user->name }} пишет:</strong></p>
-                                    <p><em>{{ $parent->text }}</em></p>
-                                </div>
+                                <blockquote>
+                                    <small>{{ $parent->user->name }} пишет:</small>
+                <p class="text-muted"><em>{{ $parent->text }}</em></p>
+                </blockquote>
                                 @break
                             @endif
                         @endforeach

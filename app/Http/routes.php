@@ -9,6 +9,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+
 Route::auth();
 /*
  * For all visitors
@@ -31,6 +32,7 @@ Route::group(['middleware' => 'dashboard'], function(){
         Route::get('/dashboard/author/articles/{article}/delete', 'AuthorController@delete_article');
         Route::get('/dashboard/author/articles/category/{category}', 'AuthorController@category_list');
         Route::get('/dashboard/author/articles/own', 'AuthorController@own_articles_list');
+        Route::get('/dashboard/author/articles/{article}/comments/{comment}/pin', 'AuthorController@pin_comment');
         Route::get('/dashboard/author/articles/comments/{comment}/delete', 'AuthorController@delete_comment');
     });
     /*
@@ -56,6 +58,7 @@ Route::group(['middleware' => 'dashboard'], function(){
         Route::get('/dashboard/author/articles/{article}/delete', 'AuthorController@delete_article');
         Route::get('/dashboard/administrator/articles/own', 'AdministratorController@own_articles_list');
         Route::get('/dashboard/administrator/articles', 'AdministratorController@all_articles_list');
+        Route::get('/dashboard/administrator/articles/comments/{comment}/pin', 'AdministratorController@pin_comment');
         Route::get('/dashboard/administrator/articles/comments/{comment}/delete', 'AdministratorController@delete_comment');
         Route::get('/dashboard/administrator/articles/category/{category}', 'AdministratorController@category_list');
         Route::get('/dashboard/administrator/articles/categories', 'AdministratorController@categories');

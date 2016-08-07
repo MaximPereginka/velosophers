@@ -248,6 +248,32 @@ class AuthorController extends Controller
     }
 
     /*
+     * Pin or unpin comment from article
+     */
+    public function pin_comment(Articles $article, Comments $comment)
+    {
+        if($article->user_id == Auth::user()->id) {
+            if($comment->highlighted) {
+                Session::flash('flash_message_text', 'Комментарий успешно откреплён');
+                $comment->highlighted = false;
+            }
+            else {
+                Session::flash('flash_message_text', 'Комментарий успешно закреплён');
+                $comment->highlighted = true;
+            }
+
+            if($comment->update()) {
+                Session::flash('flash_message_class', 'success');
+            }
+            else {
+                Session::flash('flash_message_text', 'Произошла ошибка. Попробуйте позже');
+                Session::flash('flash_message_class', 'danger');
+            }
+        }
+        return back();
+    }
+
+    /*
      * Deletes comment from article
      */
     public function delete_comment(Comments $comment)
