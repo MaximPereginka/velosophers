@@ -46,6 +46,9 @@
                             <a href="/dashboard/author/articles/category/{{ $category->id }}" class="label label-success">{{ $category->name }}</a>
                         @endforeach
                     @endif
+                    <p><b>Просмотры: </b>{{ $data['article']->views }}</p>
+                    <p><b>Лайки: </b>{{ $data['article']->likes }}</p>
+                    <p><b>Комментарии: </b>{{ count($data['article']->comments) }}</p>
                 </div>
             </div>
         </div>

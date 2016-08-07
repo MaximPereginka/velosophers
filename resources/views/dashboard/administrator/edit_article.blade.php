@@ -37,6 +37,9 @@
 
                     <!-- Article status selection -->
                     @include('helpers.dashboard.administrator.article_status')
+                    <p><b>Просмотры: </b>{{ $data['article']->views }}</p>
+                    <p><b>Лайки: </b>{{ $data['article']->likes }}</p>
+                    <p><b>Комментарии: </b>{{ count($data['article']->comments) }}</p>
                 </div>
             </div>
 

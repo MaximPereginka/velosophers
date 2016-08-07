@@ -19,6 +19,8 @@ class CreateArticlesTable extends Migration
             $table->string('preview');
             $table->longText('img');
             $table->longText('content');
+            $table->integer('views')->unsigned();
+            $table->integer('likes')->unsigned();
             $table->integer('status_id')->unsigned()->index();
             $table->timestamps();
         });
