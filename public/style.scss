@@ -1,0 +1,121 @@
+$darkgrey: #1C1C1C;
+$gray: #afafaf;
+$green: #67c712;
+$white: #fff;
+
+* {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: $gray;
+}
+
+.shadow {
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.headline {
+  background: $darkgrey;
+  color: $white;
+  height: 60px;
+
+  .logo {
+    margin-top: 6px;
+    width: 270px;
+  }
+
+  nav {
+    margin-top: 17px;
+
+    ul {
+      padding: 0;
+      text-align: center;
+
+      li {
+        display: inline-block;
+        margin: 0 20px;
+
+        a {
+          font-size: 14pt;
+          font-family: "Segoe UI";
+          color: $white;
+
+          &:hover {
+            text-decoration: none;
+            color: $green;
+          }
+        }
+      }
+    }
+  }
+
+  .login {
+    margin-top: 17px;
+    text-align: right;
+
+    a {
+      color: #fff;
+      font-size: 14pt;
+      font-family: "Segoe UI";
+      padding: 3px 20px 5px;
+      transition: 0.4s ease all;
+
+      &:hover {
+        text-decoration: none;
+        color: $green;
+      }
+
+      &.have-border {
+        border: 1px solid $white;
+        border-radius: 5px;
+      }
+
+      &.have-border:hover {
+        text-decoration: none;
+        background: $green;
+        color: $white;
+        border: 1px solid $green;
+      }
+    }
+  }
+}
+
+.content {
+  margin: 35px 0;
+
+  .slider {
+    margin: 0 0 35px;
+    position: relative;
+
+    img {
+      width: 100%;
+    }
+
+    .description {
+      background: url('/img/slider-descr-bg.png') no-repeat;
+      position: absolute;
+      bottom: 25px;
+      padding: 15px 180px 18px 15px;
+      width: 1017px;
+
+      h2 {
+        margin: 0 0 5px;
+        color: $green;
+      }
+
+      p {
+        margin: 0;
+        color: $white;
+        font-size: 11pt;
+      }
+
+    }
+  }
+
+  .card {
+    margin: 0 0 30px;
+    width: 100%;
+  }
+
+}
